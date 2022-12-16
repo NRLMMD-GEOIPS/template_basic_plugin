@@ -18,7 +18,7 @@ This template repository contains everything necessary to create a fully compati
 Each file within this repository contains appropriate modification instructions.
 
 Follow the 
-[step by step instructions](https://github.com/NRLMMD-GEOIPS/template_basic_plugin/blob/dev/docs/template_instructions.rst)
+[step by step instructions](https://github.com/NRLMMD-GEOIPS/template_basic_plugin/blob/main/docs/template_instructions.rst)
 for modifying the template files within this repo in order to create your own functional plugin.
 
 @ Once this repository has been set up properly, you can remove this "Basic GeoIPS Plugin Template" section in the README.md,
