@@ -72,7 +72,7 @@ Install @package@ package
     # Assuming you followed the fully supported installation,
     # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
     source $GEOIPS_CONFIG_FILE
-    git clone $GEOIPS_REPO_URL/@package@ $GEOIPS_PACKAGES_DIR/@package@
+    git clone https://github.com/NRLMMD-GEOIPS/@package@ $GEOIPS_PACKAGES_DIR/@package@
     pip install -e $GEOIPS_PACKAGES_DIR/@package@
 ```
 
