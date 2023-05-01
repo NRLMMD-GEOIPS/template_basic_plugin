@@ -1,8 +1,8 @@
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
-# # # 
+# # #
 # # # Author:
 # # # Naval Research Laboratory, Marine Meteorology Division
-# # # 
+# # #
 # # # This program is free software: you can redistribute it and/or modify it under
 # # # the terms of the NRLMMD License included with this program. This program is
 # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -10,7 +10,7 @@
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-'''Read @my_data@ data products'''
+'''Read @my_data@ data products.'''
 
 # Please identify instances of @ within this reader file, and update appropriately.
 
@@ -20,7 +20,9 @@ from datetime import datetime
 import xarray
 LOG = logging.getLogger(__name__)
 
-reader_type = 'standard'
+interface = "readers"
+family = "@my_reader_family@"  # probably use "standard"
+name = "@my_reader@"
 
 
 def @my_reader@(fnames, metadata_only=False, chans=None, area_def=None, self_register=False):
