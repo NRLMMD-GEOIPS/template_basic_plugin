@@ -20,7 +20,7 @@ plugin package.*
 
 #. Clone the template repository and push it to a repo of your own
 
-    * `git clone https://github.com/NRLMMD-GEOIPS/template_basic_plugin.git`
+    * ``git clone https://github.com/NRLMMD-GEOIPS/template_basic_plugin.git``
     * *mv template_basic_plugin @package@*
     * Create a git repository somewhere
     * *git remote set-url origin <your repo URL>*
