@@ -20,11 +20,14 @@ plugin package.*
 
 #. Clone the template repository and push it to a repo of your own
 
-    * ``git clone https://github.com/NRLMMD-GEOIPS/template_basic_plugin.git``
-    * ``mv template_basic_plugin @package@``
-    * Create a git repository somewhere
-    * ``git remote set-url origin <your repo URL>``
-    * ``git push -u origin main``
+    * Clone this repo:
+      ``git clone https://github.com/NRLMMD-GEOIPS/template_basic_plugin.git``
+    * Move to your package name: ``mv template_basic_plugin @package@``
+    * Create a git repository somewhere (e.g. github.com)
+    * Move into your package repo: ``cd @package@``
+    * Set the repository URL to your new repository:
+      ``git remote set-url origin <your repo URL>``
+    * Push to your new repository: ``git push -u origin main``
 
 #. Update package subdirectory from my_package to @package@
 
@@ -33,6 +36,7 @@ plugin package.*
 
 #. Update **README.md** with your appropriate package information.
 
+    * ``cd`` to your package
     * Edit README.md
     * Replace @package@ with your actual package name (my_package_name):
         * :%s/@package@/my_package_name/gc
@@ -47,23 +51,29 @@ plugin package.*
     * Edit setup/config_@package@ and follow the instructions in the file
     * ``git commit setup/config_my_package setup/config_@package@``
 
-#. Update/add modules within @package@/interface_modules with desired
+#. Update/add modules in @package@/plugins/modules with desired
    functionality.
 
     * Template/example modules included for reference
     * Modify or delete directories / files as appropriate.
     * Add additional plugins directories and Python modules as needed -
-        see https://github.com/NRLMMD-GEOIPS/geoips/tree/main/geoips/plugins
-        for additional supported sub directories and module types.
+      for examples, see:
+
+      * https://github.com/NRLMMD-GEOIPS/geoips/tree/main/geoips/plugins/modules
+      * https://github.com/NRLMMD-GEOIPS/geoips_plugin_example/tree/main/geoips_plugin_example/plugins/modules
+
     * ``git commit .``
 
-#. Update/add modules within @package@/yaml_configs with desired functionality.
+#. Update/add yaml plugins in @package@/plugins/yaml with desired functionality.
 
     * Template/example YAML files included for reference
     * Modify or delete directories / files as appropriate.
-    * Add additional yaml_configs directories and Python modules as needed -
-        see https://github.com/NRLMMD-GEOIPS/geoips/tree/main/geoips/yaml_configs
-        for additional supported sub directories and YAML types.
+    * Add additional plugins directories and Python modules as needed -
+      for examples, see:
+
+      * https://github.com/NRLMMD-GEOIPS/geoips/tree/main/geoips/plugins/yaml
+      * https://github.com/NRLMMD-GEOIPS/geoips_plugin_example/tree/main/geoips_plugin_example/plugins/yaml
+
     * ``git commit .``
 
 #. Update pyproject.toml appropriately
@@ -71,9 +81,9 @@ plugin package.*
     * Edit pyproject.toml
     * Update @package@ to package name
     * Add any new interface modules to "entry_points" (every module added in
-      the interface_modules subdirectory will have an associated entry point in
-      pyproject.toml)
-    * Add any required external dependencies to "install_requires"
+      the ``plugins/modules`` subdirectory will have an associated entry point
+      in pyproject.toml)
+    * Add any python package dependencies to "install_requires"
     * ``git commit pyproject.toml``
 
 #. Add individual test scripts in @package@/tests/scripts/\*.sh
@@ -83,10 +93,10 @@ plugin package.*
       do not have to exhaustively test every piece of functionality with direct
       single source calls - but it can be nice to have one or 2 examples for
       reference.
-    * ``test_config.yaml`` is called by test_config.sh to produce output for
-      multiple products with a single call.  Testing all products can be more
-      efficiently performed using YAML output config testing vs direct single
-      source calls.
+    * ``test_config.yaml`` is called by ``test_config.sh`` to produce output
+      for multiple products with a single call.  Testing all products can be
+      more efficiently performed using YAML output config testing vs direct
+      single source calls.
     * These test scripts provide both examples of how the package is called via
       geoips, as well as a means of ensuring the processing continues to
       function as updates are made to external dependencies.
