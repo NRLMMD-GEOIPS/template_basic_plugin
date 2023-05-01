@@ -25,7 +25,7 @@ family = "@my_reader_family@"  # probably use "standard"
 name = "@my_reader@"
 
 
-def @my_reader@(fnames, metadata_only=False, chans=None, area_def=None, self_register=False):
+def call(fnames, metadata_only=False, chans=None, area_def=None, self_register=False):
     ''' Read @my_data@ data products.
 
     All GeoIPS 'standard' type readers read data into xarray Datasets - a separate
@@ -72,14 +72,15 @@ def @my_reader@(fnames, metadata_only=False, chans=None, area_def=None, self_reg
     meta_xarray.attrs['data_provider'] = '@data_provider@'
     meta_xarray.attrs['source_name'] = '@source_name@'
     meta_xarray.attrs['platform_name'] = '@platform_name@'
-    meta_xarray.attrs['interpolation_radius_of_influence'] = @ROI_int@  # Around the size of the sensor footprint
+    # Around the size of the sensor footprint
+    meta_xarray.attrs['interpolation_radius_of_influence'] = @ROI_int@
     meta_xarray.attrs['minimum_coverage'] = 20
 
     # Pull start and end datetime from data appropriately
     meta_xarray.attrs['start_datetime'] = @datetime.strptime(meta_xarray.attrs['time_coverage_start'][0:19],
-                                                            '%Y-%m-%dT%H:%M:%S')@
+                                                             '%Y-%m-%dT%H:%M:%S')@
     meta_xarray.attrs['end_datetime'] = @datetime.strptime(meta_xarray.attrs['time_coverage_end'][0:19],
-                                                          '%Y-%m-%dT%H:%M:%S')@
+                                                           '%Y-%m-%dT%H:%M:%S')@
 
     # Return metadata without reading data yet.
     if metadata_only is True:
@@ -91,14 +92,16 @@ def @my_reader@(fnames, metadata_only=False, chans=None, area_def=None, self_reg
     # Variable names will be used in product parameter YAML files to specify which variables should be used
     # for which products.
     xarrays['@DS1@'] = xarray.Dataset()
-    xarrays['@DS1@'].attrs = meta_xarray.attrs.copy()  # Populate @attributes appropriately
+    # Populate @attributes appropriately
+    xarrays['@DS1@'].attrs = meta_xarray.attrs.copy()
     xarrays['@DS1@']['latitude'] = @must have 2d array of latitudes for each dataset@
     xarrays['@DS1@']['longitude'] = @must have 2d array of longitudes for each dataset@
     xarrays['@DS1@']['ds1_var1'] = @must have 2d array of data for each variable that matches shape of lat/lon arrays@
     xarrays['@DS1@']['ds1_var2'] = @must have 2d array of data for each variable that matches shape of lat/lon arrays@
 
     xarrays['@DS2@'] = xarray.Dataset()
-    xarrays['@DS2@'].attrs = meta_xarray.attrs.copy()  # Populate @attributes appropriately
+    # Populate @attributes appropriately
+    xarrays['@DS2@'].attrs = meta_xarray.attrs.copy()
     xarrays['@DS2@']['latitude'] = @must have 2d array of latitudes for each dataset@
     xarrays['@DS2@']['longitude'] = @must have 2d array of longitudes for each dataset@
     xarrays['@DS2@']['ds2_var1'] = @must have 2d array of data for each variable that matches shape of lat/lon arrays@
