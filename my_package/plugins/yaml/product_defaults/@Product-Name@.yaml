@@ -56,14 +56,26 @@
 # @interp_args@:  Additional arguments to pass directly to "covg_func".  If none are required, pass {}
 #                   Fields under "covg_args" must match arguments within your specified "covg_func".
 
-
-@Product-Name@:
-    product_type: @product_type@
-    alg_func: @alg_name@
-    alg_args: @alg_args@
-    cmap_func: @cmap_func@
-    cmap_args: @cmap_args@
-    interp_func: @interp_func@
-    interp_args: @interp_args@
-    covg_func: @covg_func@
-    covg_args: @covg_args@
+interface: product_defaults
+family: my_family_name
+name: product_defaults_source_name
+docstring: |
+    The default product_defaults_source_name plugin configuration.
+spec:
+    algorithm:
+        plugin:
+            name: my_algorithm_name
+            arguments: {}
+    colormap:
+        plugin:
+            name: my_colormap_name
+            arguments: {}
+    interpolator:
+        plugin:
+            name: my_interpolator_name
+            arguments: {}
+    coverage_checker:
+        plugin:
+            name: my_coverage_checker_name
+            arguments: {}
+    mtif_type: my_mtif_type_name

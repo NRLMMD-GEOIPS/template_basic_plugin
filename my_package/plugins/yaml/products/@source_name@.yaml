@@ -26,9 +26,17 @@
 #       product_inputs. Any fields included within product_inputs specification will override those
 #       found in the "product_template".
 
-@source_name@:
-  @Product-Name@::
-    variables: ['@variable_name@']
-  My-New-Product:
-    product_template: "@Product-Name@"
-    variables: ['@variable_name@']
+interface: products
+family: list
+name: products_source_name
+docstring: |
+  The default products_source_name plugin configuration.
+spec:
+  products:
+    - name: my_product_name
+      docstring: |
+        The default my_product_name for products_source_name plugin configuration.
+      product_defaults: my_product_name
+      spec:
+        source_name: products_source_name
+        variables: ["my_variable_name"]
