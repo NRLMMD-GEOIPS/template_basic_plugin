@@ -21,15 +21,15 @@ plugin package.*
 #. Clone the template repository and push it to a repo of your own
 
     * ``git clone https://github.com/NRLMMD-GEOIPS/template_basic_plugin.git``
-    * *mv template_basic_plugin @package@*
+    * ``mv template_basic_plugin @package@``
     * Create a git repository somewhere
-    * *git remote set-url origin <your repo URL>*
-    * *git push -u origin main*
+    * ``git remote set-url origin <your repo URL>``
+    * ``git push -u origin main``
 
 #. Update package subdirectory from my_package to @package@
 
-    * *git mv my_package @package@*
-    * *git commit my_package @package@*
+    * ``git mv my_package @package@``
+    * ``git commit my_package @package@``
 
 #. Update **README.md** with your appropriate package information.
 
@@ -39,13 +39,13 @@ plugin package.*
     * Search for '@' within the README and follow the included instructions to
       update appropriately.
     * Remove all lines containing '@'
-    * *git commit README.md*
+    * ``git commit README.md``
 
 #. Update config file from config_my_package to @package@
 
-    * *git mv setup/config_my_package setup/config_@package@*
+    * ``git mv setup/config_my_package setup/config_@package@``
     * Edit setup/config_@package@ and follow the instructions in the file
-    * *git commit setup/config_my_package setup/config_@package@*
+    * ``git commit setup/config_my_package setup/config_@package@``
 
 #. Update/add modules within @package@/interface_modules with desired
    functionality.
@@ -55,7 +55,7 @@ plugin package.*
     * Add additional plugins directories and Python modules as needed -
         see https://github.com/NRLMMD-GEOIPS/geoips/tree/main/geoips/plugins
         for additional supported sub directories and module types.
-    * *git commit .*
+    * ``git commit .``
 
 #. Update/add modules within @package@/yaml_configs with desired functionality.
 
@@ -64,7 +64,7 @@ plugin package.*
     * Add additional yaml_configs directories and Python modules as needed -
         see https://github.com/NRLMMD-GEOIPS/geoips/tree/main/geoips/yaml_configs
         for additional supported sub directories and YAML types.
-    * *git commit .*
+    * ``git commit .``
 
 #. Update pyproject.toml appropriately
 
@@ -74,16 +74,16 @@ plugin package.*
       the interface_modules subdirectory will have an associated entry point in
       pyproject.toml)
     * Add any required external dependencies to "install_requires"
-    * *git commit pyproject.toml*
+    * ``git commit pyproject.toml``
 
 #. Add individual test scripts in @package@/tests/scripts/\*.sh
 
-    * *@mydatatype@.tc.@product@.imagery_clean.sh* is a direct single_source
+    * ``@mydatatype@.tc.@product@.imagery_clean.sh`` is a direct single_source
       example command - this tests a single product for a single data type. You
       do not have to exhaustively test every piece of functionality with direct
       single source calls - but it can be nice to have one or 2 examples for
       reference.
-    * *test_config.yaml* is called by test_config.sh to produce output for
+    * ``test_config.yaml`` is called by test_config.sh to produce output for
       multiple products with a single call.  Testing all products can be more
       efficiently performed using YAML output config testing vs direct single
       source calls.
@@ -91,7 +91,7 @@ plugin package.*
       geoips, as well as a means of ensuring the processing continues to
       function as updates are made to external dependencies.
     * Rename / delete / add test scripts appropriately.
-    * *git commit tests/scripts*
+    * ``git commit tests/scripts``
 
 #. Add all test scripts to @package@/tests/test_all.sh
 
@@ -99,26 +99,26 @@ plugin package.*
     * This script is called automatically during exhaustive geoips testing -
       requires 0 return.
     * Ensure all functionality included.
-    * *git commit tests/test_all.sh*
+    * ``git commit tests/test_all.sh``
 
 #. Add one example test script to README.md, if desired
 
     * Edit README.md
     * Add one direct test call to last section, "Test @package@ installation"
-    * *git commit README.md*
+    * ``git commit README.md``
 
 #. Update CHANGELOG.md with description of updates / included modules
 
     * Edit CHANGELOG.md
-    * *git commit CHANGELOG.md*
+    * ``git commit CHANGELOG.md``
 
 #. Make sure all new and updated files have been commited and pushed
 
-    * *git commit .*
-    * *git push*
+    * ``git commit .``
+    * ``git push``
 
 #. Remove this 'template_instructions.rst' file
 
-    * *git rm docs/template_instructions.rst*
-    * *git commit docs/template_instructions.rst*
-    * *git push*
+    * ``git rm docs/template_instructions.rst``
+    * ``git commit docs/template_instructions.rst``
+    * ``git push``
