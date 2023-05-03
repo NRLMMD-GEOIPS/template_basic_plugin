@@ -1,0 +1,15 @@
+89-Test:
+    product_type: interp_alg_cmap
+    alg_func: pmw_89test
+    alg_args: 
+        output_data_range: [105.0, 280.0]
+        min_outbounds: crop
+        max_outbounds: mask
+        norm: null
+        inverse: null
+    cmap_func: pmw_89pct
+    cmap_args: 
+        data_range: [105, 280]
+    interp_func: interp_gauss
+    interp_args:
+        sigmaval: 10000

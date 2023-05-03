@@ -1,0 +1,6 @@
+amsr2:
+  89-Test:
+    variables: ['tb89hA', 'tb89vA']
+    interp_args:
+      sigmaval: 10000
+
