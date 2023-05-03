@@ -15,8 +15,9 @@
 Instructions for setting up repository from template
 #############################################################
 
-*IMPORTANT NOTE: In all commands below, replace @package@ with the name that you want for your
-plugin package.*
+*IMPORTANT NOTE: In all commands below, replace @package@ with the name that
+you want for your plugin package.*
+
 
 #. Clone the template repository and push it to a repo of your own
 
@@ -117,10 +118,12 @@ plugin package.*
     * Add one direct test call to last section, "Test @package@ installation"
     * ``git commit README.md``
 
-#. Update CHANGELOG.md with description of updates / included modules
+#. Update docs/source/releases/v0_1_0.rst with description of
+   updates / included modules.
 
-    * Edit CHANGELOG.md
-    * ``git commit CHANGELOG.md``
+    * Edit docs/source/releases/v0_1_0.rst
+    * Edit docs/source/releases/index.rst
+    * ``git commit docs/source/releases/``
 
 #. Make sure all new and updated files have been commited and pushed
 
