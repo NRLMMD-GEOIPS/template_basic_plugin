@@ -45,7 +45,8 @@ for call in \
             "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all `dirname $0`/../" \
             "test_interfaces" \
             "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/test_config.sh" \
-            "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/@mydatatype@.tc.@product@.imagery_clean.sh"
+            "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.tc_clean.89-Test.sh" \
+            "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.global_clean.89-Test.sh"
 do
     . $GEOIPS/tests/utils/test_all_run.sh
 done
