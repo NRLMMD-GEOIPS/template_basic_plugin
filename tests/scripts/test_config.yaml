@@ -36,11 +36,11 @@ available_sectors:
 outputs:
   tc_clean:
     requested_sector_type: tcweb_bdeck
-    output_format: imagery_clean
-    filename_formats: ['tc_clean_fname']
+    output_formatter: imagery_clean
+    filename_formatters: ['tc_clean_fname']
     product_names:
-      - 89pct  # @product1@ 
-      - color37  # @product2@
+      - 89-Test  # @product1@ 
+      - 89pct # @product2@
     # @ Update this path to the directory you want to store your "correct" outputs in.
     # @ <output> and <product> are auto-populated at runtime, so can remain unchanged.
     compare_path: !ENV ${GEOIPS_PACKAGES_DIR}/template_basic_plugin/tests/outputs/amsr2.<output>.<product>
@@ -48,11 +48,11 @@ outputs:
   global_clean:
     requested_sector_type: global
     minimum_coverage: 1
-    output_format: imagery_clean
-    filename_formats: ['geoips_fname']
+    output_formatter: imagery_clean
+    filename_formatters: ['geoips_fname']
     # @ Update this path to the directory you want to store your "correct" outputs in.
     # @ <output> and <product> are auto-populated at runtime, so can remain unchanged.
     compare_path: !ENV ${GEOIPS_PACKAGES_DIR}/template_basic_plugin/tests/outputs/amsr2.<output>.<product>
     product_names:
-      - 37pct  # @product2@
-      - 89H  # @product1@
+      - 89-Test # @product2@
+      - color37 # @product1@

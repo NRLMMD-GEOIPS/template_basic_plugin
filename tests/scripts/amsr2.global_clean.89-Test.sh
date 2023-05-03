@@ -54,8 +54,8 @@ run_procflow \
     $GEOIPS_TESTDATA_DIR/test_data_amsr2/data/AMSR2-MBT_v2r2_GW1_s202005180620480_e202005180759470_c202005180937100.nc \
     --procflow single_source \
     --reader_name amsr2_netcdf \
-    --product_name 89pct \
-    --compare_path "$GEOIPS_BASEDIR/geoips_packages/template_basic_plugin/tests/outputs/amsr2.global.89test.imagery_clean" \
+    --product_name "89-Test" \
+    --compare_path "$GEOIPS_BASEDIR/geoips_packages/template_basic_plugin/tests/outputs/amsr2.global_clean.89-Test" \
     --output_formatter imagery_clean \
     --filename_formatter geoips_fname \
     --minimum_coverage 0 \
