@@ -19,6 +19,25 @@ spec:
         The Cloud-Base-Height implementation for ahi.
       spec:
         variables: ["cld_height_base_acha"]
-    # - name: Cloud-Depth
-    #   source_name: ahi
-    #   family: interpolator_algorithm_colormap
+    - name: Cloud-Depth
+      source_name: ahi
+      family: interpolator_algorithm_colormap
+      spec:
+        colormap:
+          name: matplotlib_linear_norm
+          arguments:
+
+            # This is how matplotlib_linear_norm works now, it figures out which type
+            # of colormap it is, and loads it.
+            # I am not a big fan of "magic" though.
+            cmap_name: tpw_pwat  # ascii palette
+            # cmap_name: pmw_37pct  # geoips plugin
+            # cmap_name: cividis   # matplotlib builtin
+            create_colorbar: True
+
+            # Do we want to be explicit as to what type of colormap we are requesting?
+            # And change the arguments to matplotlib_linear_norm?
+            ascii_path: /users/surratt/geoproc/geoips_packages/geoips/geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
+            # ascii_cmap_name: tpw_pwat
+            # geoips_cmap_name: pmw_37pct
+            # mpl_cmap_name: cividis
