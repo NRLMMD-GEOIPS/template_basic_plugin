@@ -1,26 +1,25 @@
 interface: product_defaults
-name: Cloud-Height
-source_name: ahi
 family: interpolator_algorithm_colormap
+name: Cloud-Height
 docstring: |
-  The Cloud-Top-Height default implementation.
+  The Cloud Height default implementation.
 spec:
   interpolator:
-      plugin:
-          name: interp_nearest
-          arguments: {}
+    plugin:
+      name: interp_nearest
+      arguments: {}
   algorithm:
-      plugin:
-          name: single_channel
-          arguments:
-              output_data_range: [0, 20]
-              scale_factor: 1
-              min_outbounds: "crop"
-              max_outbounds: "crop"
-              norm: False
-              inverse: False
+    plugin:
+      name: single_channel
+      arguments:
+        output_data_range: [0, 20]
+        scale_factor: 0.001
+        min_outbounds: "crop"
+        max_outbounds: "crop"
+        norm: False
+        inverse: False
   colormap:
-      plugin:
-          name: cmap_cldHeight
-          arguments:
-              data_range: [0, 20]
+    plugin:
+      name: cmap_cldHeight
+      arguments:
+        data_range: [0, 20]

@@ -7,16 +7,18 @@ spec:
   products:
     - name: Cloud-Top-Height
       source_name: ahi
+      product_defaults: Cloud-Height
       docstring: |
         The Cloud-Top-Height implementation for ahi.
-      product_defaults: Cloud-Height
       spec:
-        variables: ["cld_height_top_acha", "latitude", "longitude"]
+        variables: ["cld_height_top_acha"]
     - name: Cloud-Base-Height
       source_name: ahi
       product_defaults: Cloud-Height
       docstring: |
         The Cloud-Base-Height implementation for ahi.
       spec:
-        variables: ["cld_height_base_acha", "latitude", "longitude"]
-        colormaps:
+        variables: ["cld_height_base_acha"]
+    # - name: Cloud-Depth
+    #   source_name: ahi
+    #   family: interpolator_algorithm_colormap
