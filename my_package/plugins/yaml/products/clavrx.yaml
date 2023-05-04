@@ -22,6 +22,8 @@ spec:
     - name: Cloud-Depth
       source_name: ahi
       family: interpolator_algorithm_colormap
+      docstring: |
+        Cloud Depth implementation
       spec:
         colormap:
           name: matplotlib_linear_norm
