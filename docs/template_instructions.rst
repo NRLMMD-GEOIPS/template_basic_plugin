@@ -89,11 +89,11 @@ you want for your plugin package.*
 
 #. Add individual test scripts in @package@/tests/scripts/\*.sh
 
-    * ``@mydatatype@.tc.@product@.imagery_clean.sh`` is a direct single_source
+    * ``amsr2.tc_clean.89-Test.sh`` is a direct single_source
       example command - this tests a single product for a single data type. You
       do not have to exhaustively test every piece of functionality with direct
       single source calls - but it can be nice to have one or 2 examples for
-      reference.
+      reference. Name your test scripts appropriately.
     * ``test_config.yaml`` is called by ``test_config.sh`` to produce output
       for multiple products with a single call.  Testing all products can be
       more efficiently performed using YAML output config testing vs direct
