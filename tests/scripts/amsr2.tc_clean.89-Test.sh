@@ -55,7 +55,7 @@ run_procflow \
     --procflow single_source \
     --reader_name amsr2_netcdf \
     --product_name "89-Test" \
-    --compare_path "$GEOIPS_PACKAGES_DIR}/template_basic_plugin/tests/outputs/amsr2.tc_clean.89-Test" \
+    --compare_path "${GEOIPS_PACKAGES_DIR}/template_basic_plugin/tests/outputs/amsr2.tc_clean.89-Test" \
     --output_formatter imagery_clean \
     --filename_formatter tc_clean_fname \
     --trackfiles ${GEOIPS_PACKAGES_DIR}/geoips/tests/sectors/tc_bdecks/bio012020.dat \
