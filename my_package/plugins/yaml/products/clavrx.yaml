@@ -1,0 +1,22 @@
+interface: products
+family: list
+name: clavrx_test
+docstring: |
+  The default products_source_name plugin configuration.
+spec:
+  products:
+    - name: Cloud-Top-Height
+      source_name: ahi
+      docstring: |
+        The Cloud-Top-Height implementation for ahi.
+      product_defaults: Cloud-Height
+      spec:
+        variables: ["cloud_height_top_acha", "latitude", "longitude"]
+    - name: Cloud-Base-Height
+      source_name: ahi
+      product_defaults: Cloud-Height
+      docstring: |
+        The Cloud-Base-Height implementation for ahi.
+      spec:
+        variables: ["cloud_height_base_acha", "latitude", "longitude"]
+        colormaps:
