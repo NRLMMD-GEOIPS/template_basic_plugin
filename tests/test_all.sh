@@ -34,7 +34,7 @@
 
 # @ Pass the name of your package to "test_all_pre.sh", ie
 # . $GEOIPS/tests/utils/test_all_pre.sh @package@
-. $GEOIPS/tests/utils/test_all_pre.sh my_package
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh my_package
 
 # @ NOTE: Update "template_basic_plugin" paths below to point to your package's
 # @ test scripts, ie
@@ -50,7 +50,7 @@ for call in \
             "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.tc_clean.89-Test.sh" \
             "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.global_clean.89-Test.sh"
 do
-    . $GEOIPS/tests/utils/test_all_run.sh
+    . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done
 
-. $GEOIPS/tests/utils/test_all_post.sh
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_post.sh
