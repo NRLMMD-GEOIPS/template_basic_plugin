@@ -43,7 +43,7 @@ family: interpolator_algorithm_colormap
 # @ another GeoIPS convention.
 # @ Capitalization of each word in Product-Name can aid in human readability,
 # @ but is not strictly required. GeoIPS *is* case sensitive.
-name: 89test
+name: 89-Test
 docstring: |
     The default product_defaults_source_name plugin configuration.
 spec:
@@ -56,12 +56,17 @@ spec:
             # @ pyproject.toml that comes before the '=',
             # @ ie, 'single_channel' or 'pmw_89pct' as found in
             # @ geoips/pyproject.toml project.entry-points."geoips.algorithms".
-            name: single_channel
+            name: pmw_89test
             # @ Additional arguments to pass directly to the algorithm plugin.
             # @ If none are required, pass {}
             # @ Fields under "arguments" must match arguments within your
             # @ specified algorithm plugin.
-            arguments: {}
+            arguments:
+              output_data_range: [105.0, 280.0]
+              min_outbounds: crop
+              max_outbounds: mask
+              norm: null
+              inverse: null
     colormap:
         plugin:
             # @ The colormap "name" specifies a geoips colormap plugin installed
@@ -71,12 +76,13 @@ spec:
             # @ pyproject.toml that comes before the '=',
             # @ geoips/pyproject.toml project.entry-points."geoips.colormaps".
             # @ ie, 'visir.Infrared' or 'matplotlib_linear_norm' as found in geoips/setup.py 'geoips.user_colormaps'.
-            name: my_colormap_name
+            name: pmw_89pct
             # @ Additional arguments to pass directly to the colormap plugin.
             # @ If none are required, pass {}
             # @ Fields under "arguments" must match arguments within your
             # @ specified colormap plugin.
-            arguments: {}
+            arguments:
+              data_range: [105, 280]
     interpolator:
         plugin:
             # @ The colormap "name" specifies a geoips interpolator plugin installed
@@ -87,12 +93,13 @@ spec:
             # @ ie, 'pyresample_wrappers.interp_nearest' or 'scipy_wrappers.interp_grid'
             # @ Interpolation routines are used when reprojecting to a requested
             # @ area definition.
-            name: my_interpolator_name
+            name: interp_gauss
             # @ Additional arguments to pass directly to the interpolator plugin.
             # @ If none are required, pass {}
             # @ Fields under "arguments" must match arguments within your
             # @ specified interpolator plugin.
-            arguments: {}
+            arguments:
+              sigmaval: 10000
     coverage_checker:
         plugin:
             # @ The coverage_checker "name" specifies a geoips coverage_checker

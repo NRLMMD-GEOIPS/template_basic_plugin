@@ -29,7 +29,7 @@ spec:
     # @ another GeoIPS convention.
     # @ Capitalization of each word in Product-Name can aid in human readability,
     # @ but is not strictly required. GeoIPS *is* case sensitive.
-    - name: 89test
+    - name: 89-Test
 
       # @ Include your own descriptive docstring that describes this
       # @ particular product.
@@ -37,7 +37,7 @@ spec:
         The amsr2_test implementation of my_product_name.
 
       # @ product_defaults references a "product_defaults" plugin (found in any repo)
-      product_defaults: 89pct
+      product_defaults: 89-Test
 
       spec:
 
