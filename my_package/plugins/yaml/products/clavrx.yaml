@@ -19,27 +19,48 @@ spec:
         The Cloud-Base-Height implementation for ahi.
       spec:
         variables: ["cld_height_base_acha"]
+        colormap:
+          plugin:
+            name: matplotlib_linear_norm
+            arguments:
+              # ascii palette, looks in plugins/txt/ascii_palettes/*.txt
+              cmap_name: tpw_pwat
+              cmap_source: ascii
+              # Optional cmap_path to give it an explicit path to a file on disk.
+              cmap_path: ../geoips/geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
+
+              # GeoIPS plugin-based colormap
+              # cmap_name: pmw_37pct  # geoips plugin
+              # cmap_source: geoips
+
+              # matplotlib builtin colormap
+              # cmap_name: cividis   # matplotlib builtin
+              # cmap_source: matplotlib
+
+              # Other options
+              create_colorbar: True
     - name: Cloud-Depth
       source_name: ahi
       family: interpolator_algorithm_colormap
       docstring: |
         Cloud Depth implementation
       spec:
+        interpolator:
+          plugin:
+            name: interp_nearest
+            arguments: {}
+        algorithm:
+          plugin:
+            name: single_channel
+            arguments:
+              output_data_range: [0, 20]
+              scale_factor: 0.001
+              min_outbounds: "crop"
+              max_outbounds: "crop"
+              norm: False
+              inverse: False
         colormap:
-          name: matplotlib_linear_norm
-          arguments:
-
-            # This is how matplotlib_linear_norm works now, it figures out which type
-            # of colormap it is, and loads it.
-            # I am not a big fan of "magic" though.
-            cmap_name: tpw_pwat  # ascii palette
-            # cmap_name: pmw_37pct  # geoips plugin
-            # cmap_name: cividis   # matplotlib builtin
-            create_colorbar: True
-
-            # Do we want to be explicit as to what type of colormap we are requesting?
-            # And change the arguments to matplotlib_linear_norm?
-            ascii_path: /users/surratt/geoproc/geoips_packages/geoips/geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
-            # ascii_cmap_name: tpw_pwat
-            # geoips_cmap_name: pmw_37pct
-            # mpl_cmap_name: cividis
+          plugin:
+            name: cmap_cldHeight
+            arguments:
+              data_range: [0, 20]
