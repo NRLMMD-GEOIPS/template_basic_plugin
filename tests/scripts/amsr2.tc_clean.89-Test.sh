@@ -1,8 +1,8 @@
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
-# # # 
+# # #
 # # # Author:
 # # # Naval Research Laboratory, Marine Meteorology Division
-# # # 
+# # #
 # # # This program is free software: you can redistribute it and/or modify it under
 # # # the terms of the NRLMMD License included with this program. This program is
 # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -35,7 +35,7 @@
 # @ Select readername that matches the data file above:
 #     --reader_name @readername@ \
 
-# @ Select a product that is available for the above data type 
+# @ Select a product that is available for the above data type
 #     --product_name @product@ \
 
 # @ Point to the appropriate comparison directory, where you would like to store your
@@ -61,5 +61,19 @@ run_procflow \
     --trackfiles ${GEOIPS_PACKAGES_DIR}/geoips/tests/sectors/tc_bdecks/bio012020.dat \
     --trackfile_parser bdeck_parser
 ss_retval=$?
+
+# Proposed "activity" for tutorial.  Switch this to an "annotated" image, then
+# modify 89-Test product to swap out colormaps, ranges, etc.
+# run_procflow \
+#     $GEOIPS_TESTDATA_DIR/test_data_amsr2/data/AMSR2-MBT_v2r2_GW1_s202005180620480_e202005180759470_c202005180937100.nc \
+#     --procflow single_source \
+#     --reader_name amsr2_netcdf \
+#     --product_name "89-Test" \
+#     --compare_path "$GEOIPS_BASEDIR/geoips_packages/template_basic_plugin/tests/outputs/amsr2.tc_clean.89-Test" \
+#     --output_formatter imagery_annotated \
+#     --filename_formatter tc_fname \
+#     --trackfiles ${GEOIPS_PACKAGES_DIR}/geoips/tests/sectors/tc_bdecks/bio012020.dat \
+#     --trackfile_parser bdeck_parser
+# ss_retval=$?
 
 exit $((ss_retval))
