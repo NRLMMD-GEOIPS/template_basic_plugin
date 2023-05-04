@@ -57,7 +57,7 @@ run_procflow \
     --product_name "89-Test" \
     --compare_path "$GEOIPS_BASEDIR/geoips_packages/template_basic_plugin/tests/outputs/amsr2.tc_clean.89-Test" \
     --output_formatter imagery_clean \
-    --filename_formatter geoips_fname \
+    --filename_formatter tc_fname \
     --trackfiles ${GEOIPS_PACKAGES_DIR}/geoips/tests/sectors/tc_bdecks/bio012020.dat \
     --trackfile_parser bdeck_parser
 ss_retval=$?
