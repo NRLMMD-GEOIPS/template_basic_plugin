@@ -11,12 +11,12 @@ spec:
         The Cloud-Top-Height implementation for ahi.
       product_defaults: Cloud-Height
       spec:
-        variables: ["cloud_height_top_acha", "latitude", "longitude"]
+        variables: ["cld_height_top_acha", "latitude", "longitude"]
     - name: Cloud-Base-Height
       source_name: ahi
       product_defaults: Cloud-Height
       docstring: |
         The Cloud-Base-Height implementation for ahi.
       spec:
-        variables: ["cloud_height_base_acha", "latitude", "longitude"]
+        variables: ["cld_height_base_acha", "latitude", "longitude"]
         colormaps:
