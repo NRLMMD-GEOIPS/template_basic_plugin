@@ -32,7 +32,9 @@
 
 # Note you must use the variable "call" in the for the loop
 
-. $GEOIPS/tests/utils/test_all_pre.sh @package@
+# @ Pass the name of your package to "test_all_pre.sh", ie
+# . $GEOIPS/tests/utils/test_all_pre.sh @package@
+. $GEOIPS/tests/utils/test_all_pre.sh my_package
 
 # @ NOTE: Update "template_basic_plugin" paths below to point to your package's
 # @ test scripts, ie
