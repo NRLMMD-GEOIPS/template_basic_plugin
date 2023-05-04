@@ -1,8 +1,8 @@
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
-# # # 
+# # #
 # # # Author:
 # # # Naval Research Laboratory, Marine Meteorology Division
-# # # 
+# # #
 # # # This program is free software: you can redistribute it and/or modify it under
 # # # the terms of the NRLMMD License included with this program. This program is
 # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -35,7 +35,7 @@
 # @ Select readername that matches the data file above:
 #     --reader_name @readername@ \
 
-# @ Select a product that is available for the above data type 
+# @ Select a product that is available for the above data type
 #     --product_name @product@ \
 
 # @ Point to the appropriate comparison directory, where you would like to store your
@@ -55,7 +55,7 @@ run_procflow \
     --procflow single_source \
     --reader_name amsr2_netcdf \
     --product_name "89-Test" \
-    --compare_path "$GEOIPS_BASEDIR/geoips_packages/template_basic_plugin/tests/outputs/amsr2.global_clean.89-Test" \
+    --compare_path "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/outputs/amsr2.global_clean.89-Test" \
     --output_formatter imagery_clean \
     --filename_formatter geoips_fname \
     --minimum_coverage 0 \
