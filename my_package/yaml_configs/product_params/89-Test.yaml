@@ -42,7 +42,7 @@
 #
 #         # Do we want to be explicit as to what type of colormap we are requesting?
 #         # And change the arguments to matplotlib_linear_norm?
-#         # ascii_path: /users/surratt/geoproc/geoips_packages/geoips/geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
+#         # ascii_path: geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
 #         # ascii_cmap_name: tpw_pwat
 #         # geoips_cmap_name: pmw_37pct
 #         # mpl_cmap_name: cividis
