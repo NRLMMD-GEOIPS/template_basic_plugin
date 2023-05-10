@@ -1,8 +1,8 @@
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
-# # # 
+# # #
 # # # Author:
 # # # Naval Research Laboratory, Marine Meteorology Division
-# # # 
+# # #
 # # # This program is free software: you can redistribute it and/or modify it under
 # # # the terms of the NRLMMD License included with this program. This program is
 # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -27,13 +27,32 @@
 # The $GEOIPS tests modules sourced within this script handle:
    # setting up the appropriate associative arrays for tracking the overall
    #   return value,
-   # calling the test scripts appropriately, and 
+   # calling the test scripts appropriately, and
    # setting the final return value.
 
 # Note you must use the variable "call" in the for the loop
 
 # @ Pass the name of your package to "test_all_pre.sh", ie
-# . $GEOIPS/tests/utils/test_all_pre.sh @package@
+
+if [[ ! -d $GEOIPS_PACKAGES_DIR/geoips ]]; then
+    echo "Must CLONE geoips repository into \$GEOIPS_PACKAGES_DIR location"
+    echo "to use test_all.sh testing utility."
+    echo ""
+    echo "export GEOIPS_PACKAGES_DIR=<path_to_geoips_cloned_packages>"
+    echo "git clone https://github.com/NRLMMD-GEOIPS/geoips $GEOIPS_PACKAGES_DIR/geoips"
+    echo ""
+    exit 1
+fi
+if [[ ! -f $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh ]]; then
+    echo "geoips-based testing utility does not exist:"
+    echo "  $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh"
+    echo ""
+    echo "Please ensure geoips repo is CLONED in GEOIPS_PACKAGES_DIR location"
+    echo "and up to date."
+    exit 2
+fi
+
+# . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh @package@
 . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh my_package
 
 # @ NOTE: Update "template_basic_plugin" paths below to point to your package's
