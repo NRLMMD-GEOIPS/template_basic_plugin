@@ -62,7 +62,7 @@ run_procflow \
     --trackfile_parser bdeck_parser
 ss_retval=$?
 
-# Proposed "activity" for tutorial.  Switch this to an "annotated" image, then
+# Example for modifying command line call. Switch to an "annotated" image, then
 # modify 89-Test product to swap out colormaps, ranges, etc.
 # run_procflow \
 #     $GEOIPS_TESTDATA_DIR/test_data_amsr2/data/AMSR2-MBT_v2r2_GW1_s202005180620480_e202005180759470_c202005180937100.nc \
