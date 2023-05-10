@@ -20,9 +20,8 @@ docstring: |
 
 spec:
   products:
-
     # @ product name is the identifier for the current product - note it *can*
-    # @ match the name specified in "product_defaults". 
+    # @ match the name specified in "product_defaults".
     # @ product can be defined in ANY repo!  Does not have to be this repo!
     # @ NOTE: Please use '-' as a delimeter in product names by GeoIPS convention.
     # @ This allows using either '_' or '.' as a delimiter in filenames,
@@ -30,6 +29,11 @@ spec:
     # @ Capitalization of each word in Product-Name can aid in human readability,
     # @ but is not strictly required. GeoIPS *is* case sensitive.
     - name: 89-Test
+
+      # @ source_name must be a valid geoips "source_name", as found in the
+      # @ reader for this data type.  Readers can be specified in any repository,
+      # @ does not have to be specified in this repo!
+      source_name: amsr2
 
       # @ Include your own descriptive docstring that describes this
       # @ particular product.
@@ -40,11 +44,5 @@ spec:
       product_defaults: 89-Test
 
       spec:
-
-        # @ source_name must be a valid geoips "source_name", as found in the
-        # @ reader for this data type.  Readers can be specified in any repository,
-        # @ does not have to be specified in this repo!
-        source_name: amsr2
-
         # @ Variables must match variable names found in the reader for this data type!
-        variables: ["tb89hA"]  # 
+        variables: ["tb89hA", "tb89vA"] #

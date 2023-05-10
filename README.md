@@ -32,7 +32,7 @@ content for your package's README file.
 
 The @package@ package is a GeoIPS-compatible plugin, intended to be used within
 the GeoIPS ecosystem.  Please see the
-[GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/README.md) for
+[GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips#readme) for
 more information on the GeoIPS plugin architecture and base infrastructure.
 
 
@@ -56,7 +56,7 @@ The @package@ plugin provides the capability for
 System Requirements
 ---------------------
 
-* geoips >= 1.5.3
+* geoips >= 1.10.0
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
 * @ Add any additional system requirements, such as gfortran, etc
 
@@ -65,7 +65,7 @@ IF REQUIRED: Install base geoips package
 SKIP IF YOU HAVE ALREADY INSTALLED BASE GEOIPS ENVIRONMENT
 
 If GeoIPS Base is not yet installed, follow the
-[installation instructions](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/docs/installation.rst)
+[installation instructions](https://github.com/NRLMMD-GEOIPS/geoips#installation)
 within the geoips source repo documentation:
 
 Install @package@ package
