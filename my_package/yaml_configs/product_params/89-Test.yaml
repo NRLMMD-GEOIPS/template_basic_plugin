@@ -1,0 +1,52 @@
+89-Test:
+    product_type: interp_alg_cmap
+    alg_func: pmw_89test
+    alg_args:
+        output_data_range: [105.0, 280.0]
+        min_outbounds: crop
+        max_outbounds: mask
+        norm: null
+        inverse: null
+    cmap_func: pmw_89pct
+    cmap_args:
+        data_range: [105, 280]
+    interp_func: interp_gauss
+    interp_args:
+        sigmaval: 10000
+
+# Here is my proposed tutorial activity for taking the existing "89-Test" product above,
+# and playing with the colormaps.
+# 89-Test:
+#     product_type: interp_alg_cmap
+#     alg_func: pmw_89test
+#     alg_args:
+#         output_data_range: [105.0, 280.0]
+#         min_outbounds: crop
+#         max_outbounds: mask
+#         norm: null
+#         inverse: null
+#     # Only the cmap_func and cmap_args will change for this activity.
+#     # matplotlib_linear_norm is a generalized colormapper that uses pre-existing
+#     # colormaps (ascii palettes, geoips plugin, or matplotlib builtin), and just
+#     # plots the data.
+#     cmap_func: matplotlib_linear_norm
+#     cmap_args:
+
+#         # This is how matplotlib_linear_norm works now, it figures out which type
+#         # of colormap it is, and loads it.
+#         # I am not a big fan of "magic" though.
+#         # cmap_name: tpw_pwat  # ascii palette
+#         # cmap_name: pmw_37pct  # geoips plugin
+#         # cmap_name: cividis   # matplotlib builtin
+#         create_colorbar: True
+#
+#         # Do we want to be explicit as to what type of colormap we are requesting?
+#         # And change the arguments to matplotlib_linear_norm?
+#         # ascii_path: geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
+#         # ascii_cmap_name: tpw_pwat
+#         # geoips_cmap_name: pmw_37pct
+#         # mpl_cmap_name: cividis
+#
+#     interp_func: interp_gauss
+#     interp_args:
+#         sigmaval: 10000

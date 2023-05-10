@@ -46,4 +46,3 @@ spec:
       spec:
         # @ Variables must match variable names found in the reader for this data type!
         variables: ["tb89hA", "tb89vA"] #
-
