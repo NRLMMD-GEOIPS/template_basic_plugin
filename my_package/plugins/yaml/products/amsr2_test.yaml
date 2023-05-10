@@ -1,0 +1,50 @@
+# @ Replace all instances of @ within this template with appropriate values for your
+# @ particular use case. Then remove all lines within this file containing "@"
+
+# @ "products" YAML files are used to specify which products are valid for a given
+# @            source within GeoIPS, and specify additional parameters required to
+# @            generate a particular product for a given source (ie, variables, data
+# @            ranges, etc)
+# @            Any fields that are specified within "products" will override
+# @            those within "product_defaults"
+
+interface: products
+family: list
+
+# @ This can be any unique identifier for this product list.
+name: amsr2_test
+
+# @ Include your own descriptive docstring that describes this list of products.
+docstring: |
+  The default products_source_name plugin configuration.
+
+spec:
+  products:
+
+    # @ product name is the identifier for the current product - note it *can*
+    # @ match the name specified in "product_defaults". 
+    # @ product can be defined in ANY repo!  Does not have to be this repo!
+    # @ NOTE: Please use '-' as a delimeter in product names by GeoIPS convention.
+    # @ This allows using either '_' or '.' as a delimiter in filenames,
+    # @ another GeoIPS convention.
+    # @ Capitalization of each word in Product-Name can aid in human readability,
+    # @ but is not strictly required. GeoIPS *is* case sensitive.
+    - name: 89-Test
+
+      # @ Include your own descriptive docstring that describes this
+      # @ particular product.
+      docstring: |
+        The amsr2_test implementation of my_product_name.
+
+      # @ product_defaults references a "product_defaults" plugin (found in any repo)
+      product_defaults: 89-Test
+
+      spec:
+
+        # @ source_name must be a valid geoips "source_name", as found in the
+        # @ reader for this data type.  Readers can be specified in any repository,
+        # @ does not have to be specified in this repo!
+        source_name: amsr2
+
+        # @ Variables must match variable names found in the reader for this data type!
+        variables: ["tb89hA"]  # 

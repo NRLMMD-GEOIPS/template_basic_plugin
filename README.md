@@ -1,8 +1,8 @@
     # # # Distribution Statement A. Approved for public release. Distribution unlimited.
-    # # # 
+    # # #
     # # # Author:
     # # # Naval Research Laboratory, Marine Meteorology Division
-    # # # 
+    # # #
     # # # This program is free software: you can redistribute it and/or modify it under
     # # # the terms of the NRLMMD License included with this program. This program is
     # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -11,33 +11,35 @@
     # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
 
-Basic GeoIPS Plugin Template 
+Basic GeoIPS Plugin Template
 =============================
 
-This template repository contains everything necessary to create a fully compatible GeoIPS Plugin Package.
-Each file within this repository contains appropriate modification instructions.
+This template repository contains everything necessary to create a fully
+compatible GeoIPS Plugin Package.  Each file within this repository contains
+appropriate modification instructions.
 
-Follow the 
-[step by step instructions](./docs/template_instructions.rst)
-for modifying the template files within this repo in order to create your own functional plugin.
+Follow the [step by step instructions](./docs/template_instructions.rst) for
+modifying the template files within this repo in order to create your own
+functional plugin.
 
-@ Once this repository has been set up properly, you can remove this "Basic GeoIPS Plugin Template" section in the README.md,
-leaving the appropriate content for your package's README file.
+@ Once this repository has been set up properly, you can remove this "Basic
+GeoIPS Plugin Template" section in the README.md, leaving the appropriate
+content for your package's README file.
 
 
 @package@ GeoIPS Plugin
 ==========================
 
-The @package@ package is a GeoIPS-compatible plugin, intended to be used within the GeoIPS ecosystem.
-Please see the 
-[GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/README.md)
-for more information on the GeoIPS plugin architecture and base infrastructure.
+The @package@ package is a GeoIPS-compatible plugin, intended to be used within
+the GeoIPS ecosystem.  Please see the
+[GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/README.md) for
+more information on the GeoIPS plugin architecture and base infrastructure.
 
 
 Package Overview
 -----------------
 
-The @package@ plugin provides the capability for 
+The @package@ plugin provides the capability for
 
 @ Please include a brief description of what capability this package provides.
 
@@ -47,7 +49,7 @@ The @package@ plugin provides the capability for
 @ Example overview:
 
 @ The template_basic_plugin package provides template files which can be used to create
-@ a fully compatible GeoIPS plugin.  This template repository is focused on basic functionality - 
+@ a fully compatible GeoIPS plugin.  This template repository is focused on basic functionality -
 @ ie, simple readers, products, output formats, etc.  Additional template repositories will be
 @ created for more sophisticated and complicated use cases.
 
@@ -60,7 +62,7 @@ System Requirements
 
 IF REQUIRED: Install base geoips package
 ------------------------------------------------------------
-SKIP IF YOU HAVE ALREADY INSTALLED BASE GEOIPS ENVIRONMENT 
+SKIP IF YOU HAVE ALREADY INSTALLED BASE GEOIPS ENVIRONMENT
 
 If GeoIPS Base is not yet installed, follow the
 [installation instructions](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/docs/installation.rst)
