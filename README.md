@@ -71,9 +71,9 @@ within the geoips source repo documentation:
 Install @package@ package
 ----------------------------
 ```bash
-    # Assuming you followed the fully supported installation,
-    # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
-    source $GEOIPS_CONFIG_FILE
+
+    # Ensure GeoIPS Python environment is enabled.
+    
     git clone https://github.com/NRLMMD-GEOIPS/@package@ $GEOIPS_PACKAGES_DIR/@package@
     pip install -e $GEOIPS_PACKAGES_DIR/@package@
 ```
@@ -81,11 +81,11 @@ Install @package@ package
 Test @package@ installation
 -----------------------------
 ```bash
-    # Assuming you followed the fully supported installation,
-    # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
-    source $GEOIPS_CONFIG_FILE
+
+    # Ensure GeoIPS Python environment is enabled.
 
     # This script will run ALL tests within this package
-    # @ You can add additional individual test calls if desired (rather than forcing the user to run the full test)
+    # @ You can add additional individual test calls if desired
+    # @  (rather than forcing the user to run the full test)
     $GEOIPS_PACKAGES_DIR/@package@/tests/test_all.sh
 ```
