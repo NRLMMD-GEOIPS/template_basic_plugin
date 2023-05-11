@@ -18,9 +18,9 @@ This template repository contains everything necessary to create a fully
 compatible GeoIPS Plugin Package.  Each file within this repository contains
 appropriate modification instructions.
 
-Follow the [step by step instructions](./docs/template_instructions.rst) for
-modifying the template files within this repo in order to create your own
-functional plugin.
+To create your own functional plugin for GeoIPS, follow the
+[step by step instructions](./docs/template_instructions.rst) for
+modifying the template files within this repo.
 
 @ Once this repository has been set up properly, you can remove this "Basic
 GeoIPS Plugin Template" section in the README.md, leaving the appropriate
