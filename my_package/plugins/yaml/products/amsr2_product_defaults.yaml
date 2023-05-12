@@ -1,0 +1,43 @@
+# @ Replace all instances of @ within this template with appropriate values for your
+# @ particular use case. Then remove all lines within this file containing "@"
+
+# @ "products" YAML files are used to specify which products are valid for a given
+# @            source within GeoIPS, and specify additional parameters required to
+# @            generate a particular product for a given source (ie, variables, data
+# @            ranges, etc)
+# @            Any fields that are specified within "products" will override
+# @            those within "product_defaults"
+
+interface: products
+family: list
+# @ This uniquely identifies the product list plugin
+name: amsr2_product_defaults
+# @ Include your own descriptive docstring that describes this list of products.
+docstring: |
+  AMSR-2 products using product_defaults
+
+spec:
+  products:
+    # @ name is the *case-sensitive* identifier for an individual product
+    # @ By convention, product names should use '-' as a delimeter and start each word
+    # @ with a capital letter.
+    - name: 89-PCT-Product-Defaults
+
+      # @ source_name must be a valid geoips "source_name".
+      # @ Presently, this can only be found by examining the reader for that particular
+      # @ data type.
+      # @ Readers may be specified in any plugin package, not just this one or the main
+      # @ GeoIPS package.
+      source_name: amsr2
+
+      # @ Include your own descriptive docstring that describes this particular product.
+      docstring: |
+        The amsr2_product_defaults implementation of 89 MHz Polarization Corrected
+        Brightness Temperature.
+
+      # @ product_defaults references a "product_defaults" plugin (found in any repo)
+      product_defaults: 89-PCT-Test
+
+      spec:
+        # @ Variables must match variable names found in the reader for this data type!
+        variables: ["tb89hA", "tb89vA"] #

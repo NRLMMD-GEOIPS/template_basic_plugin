@@ -1,54 +1,59 @@
-# @ "product_defaults" YAML files specify a given set of defaults for
-# @ product specifications within GeoIPS.
+# @ Replace all instances of @ within this template with appropriate values for your
+# @ particular use case. Then remove all lines within this file containing "@"
 
-# @ Replace all instances of @ within this template with appropriate values for
-# @ your particular use case.
-# @ Once complete, remove all lines containing "@" from this file.
+# @ "products" YAML files are used to specify which products are valid for a given
+# @            source within GeoIPS, and specify additional parameters required to
+# @            generate a particular product for a given source (ie, variables, data
+# @            ranges, etc)
+# @            Any fields that are specified within "products" will override
+# @            those within "product_defaults"
 
-# @ A "product" within GeoIPS is a set of steps required to process a dataset
-# @ in a given way.
-
-# @ The currently supported product types are specified in
-# @ geoips/schema/product_defaults, with the associated required contents and
-# @ formatting
-
-# @ NOTE: Once the command line interface has been finalized, much of these
-# @       instructions will be replaced with calls to the command line
-# @       interface in order to identify available algorithms, colormaps, etc.
-# @       In the meantime, these instructions will point you towards the code
-# @       itself that is referenced in the various pieces of the product
-# @       specification.
-
-
-interface: product_defaults
-
-# @ "family" is a string that identifies the valid fields within this product.
-# @ These are currently specified within geoips/schema/product_defaults
-# @ - your product type must match a valid schema.
-# @ The product "family" also specifies what operations must be applied to the dataset
-# @ for a given product, and in what order.  The processing workflows handle
-# @ ensuring each step is applied appropriately based on the product "family"
-# @ Thus, only supported product families will behave appropriately within
-# @ GeoIPS.  If a new unsupported order of operations is required for a given
-# @ product, support for that product_type must be added in the main GeoIPS
-# @ infrastructure - please contact the GeoIPS Team if you require a new
-# @ product_type.
-family: interpolator_algorithm_colormap
-
-# @ product "name" is the identifier for the current product
-# @ Product "name" will be referenced within products/*.yaml product list files,
-# @ where the actual required variable names will be identified for a given source.
-# @ NOTE: Please use '-' as a delimeter in product names by GeoIPS convention.
-# @ This allows using either '_' or '.' as a delimiter in filenames,
-# @ another GeoIPS convention.
-# @ Capitalization of each word in Product-Name can aid in human readability,
-# @ but is not strictly required. GeoIPS *is* case sensitive.
-name: 89-Test
+interface: products
+family: list
+# @ This uniquely identifies the product list plugin
+name: amsr2_family
+# @ Include your own descriptive docstring that describes this list of products.
 docstring: |
-    The default product_defaults_source_name plugin configuration.
+  AMSR-2 product, fully defined using a family
+
 spec:
-    algorithm:
-        plugin:
+  products:
+    # @ name is the *case-sensitive* identifier for an individual product
+    # @ By convention, product names should use '-' as a delimeter and start each word
+    # @ with a capital letter.
+    - name: 89-PCT-Family
+
+      # @ source_name must be a valid geoips "source_name".
+      # @ Presently, this can only be found by examining the reader for that particular
+      # @ data type.
+      # @ Readers may be specified in any plugin package, not just this one or the main
+      # @ GeoIPS package.
+      source_name: amsr2
+
+      # @ Include your own descriptive docstring that describes this particular product.
+      docstring: |
+        The amsr2_family implementation of 89 MHz Polarization Corrected
+        Brightness Temperature.
+
+      # @ "family" is a string that identifies the valid fields within this product.
+      # @ These are currently specified within geoips/schema/product_defaults
+      # @ - your product type must match a valid schema.
+      # @ The product "family" also specifies what operations must be applied to the dataset
+      # @ for a given product, and in what order.  The processing workflows handle
+      # @ ensuring each step is applied appropriately based on the product "family"
+      # @ Thus, only supported product families will behave appropriately within
+      # @ GeoIPS.  If a new unsupported order of operations is required for a given
+      # @ product, support for that product_type must be added in the main GeoIPS
+      # @ infrastructure - please contact the GeoIPS Team if you require a new
+      # @ product_type.
+      family: interpolator_algorithm_colormap
+
+      spec:
+        # @ Variables must match variable names found in the reader for this data type!
+        variables: ["tb89hA", "tb89vA"] #
+
+        algorithm:
+          plugin:
             # @ The algorithm "name' specifies a geoips algorithm plugin installed
             # @ via entry points, in any repository.
             # @ This string must match the "name" attribute on the algorith plugin,
@@ -67,8 +72,8 @@ spec:
               max_outbounds: mask
               norm: null
               inverse: null
-    colormap:
-        plugin:
+        colormap:
+          plugin:
             # @ The colormap "name" specifies a geoips colormap plugin installed
             # @ via entry points, in any repository.
             # @ This string must match the "name" attribute on the colormap plugin,
@@ -83,8 +88,8 @@ spec:
             # @ specified colormap plugin.
             arguments:
               data_range: [105, 280]
-    interpolator:
-        plugin:
+        interpolator:
+          plugin:
             # @ The colormap "name" specifies a geoips interpolator plugin installed
             # @ via entry points, in any repository.
             # @ This string must match the "name" attribute on the interpolator plugin,
@@ -100,8 +105,8 @@ spec:
             # @ specified interpolator plugin.
             arguments:
               sigmaval: 10000
-    coverage_checker:
-        plugin:
+        coverage_checker:
+          plugin:
             # @ The coverage_checker "name" specifies a geoips coverage_checker
             # @ plugin installed via entry points, in any repository.
             # @ This string must match the "name" attribute on the coverage_checker
