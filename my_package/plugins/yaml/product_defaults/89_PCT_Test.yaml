@@ -1,5 +1,5 @@
-# @ "product_defaults" YAML files specify a given set of defaults for
-# @ product specifications within GeoIPS.
+# @ "product_defaults" YAML files specify a reusable set of default values for
+# @ use in product specifications within GeoIPS.
 
 # @ Replace all instances of @ within this template with appropriate values for
 # @ your particular use case.
