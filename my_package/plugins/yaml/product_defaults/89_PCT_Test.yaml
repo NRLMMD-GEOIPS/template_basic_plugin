@@ -1,9 +1,8 @@
 # @ "product_defaults" YAML files specify a reusable set of default values for
 # @ use in product specifications within GeoIPS.
 
-# @ Replace all instances of @ within this template with appropriate values for
-# @ your particular use case.
-# @ Once complete, remove all lines containing "@" from this file.
+# @ Replace all instances of @ within this template with appropriate values for your
+# @ particular use case. Then remove all lines within this file containing "@"
 
 # @ A "product" within GeoIPS is a set of steps required to process a dataset
 # @ in a given way.
@@ -21,45 +20,34 @@
 
 interface: product_defaults
 
-# @ "family" is a string that identifies the valid fields within this product.
-# @ These are currently specified within geoips/schema/product_defaults
-# @ - your product type must match a valid schema.
-# @ The product "family" also specifies what operations must be applied to the dataset
-# @ for a given product, and in what order.  The processing workflows handle
-# @ ensuring each step is applied appropriately based on the product "family"
-# @ Thus, only supported product families will behave appropriately within
-# @ GeoIPS.  If a new unsupported order of operations is required for a given
-# @ product, support for that product_type must be added in the main GeoIPS
-# @ infrastructure - please contact the GeoIPS Team if you require a new
-# @ product_type.
+# @ "family" is a string that identifies which operations will be applied to the
+# @ input data and in which order they will be applied. This also means that it
+# @ identifies which plugins need to be specified for the product.
+# @
+# @ For example, a product in the "interpolator_algorithm_colormap" family will
+# @ apply plugins in the order "interpolator -> algorithm -> colormap" and will
+# @ require each of those plugins to be supplied in the product definition.
 family: interpolator_algorithm_colormap
 
-# @ product "name" is the identifier for the current product
-# @ Product "name" will be referenced within products/*.yaml product list files,
-# @ where the actual required variable names will be identified for a given source.
-# @ NOTE: Please use '-' as a delimeter in product names by GeoIPS convention.
-# @ This allows using either '_' or '.' as a delimiter in filenames,
-# @ another GeoIPS convention.
-# @ Capitalization of each word in Product-Name can aid in human readability,
-# @ but is not strictly required. GeoIPS *is* case sensitive.
+# @ "name" specifies the name of the product_defaults plugin and is how it can be
+# @ referenced from a product plugin.
 name: 89-PCT-Test
+
+# @ Include your own descriptive docstring that describes this list of products.
 docstring: |
   The default product_defaults_source_name plugin configuration.
+
 spec:
+  # @ Specify which algorithm plugin to apply to the input data and the arguments
+  # @ that should be passed to the algorithm plugin.
   algorithm:
     plugin:
-      # @ The algorithm "name' specifies a geoips algorithm plugin installed
-      # @ via entry points, in any repository.
-      # @ This string must match the "name" attribute on the algorith plugin,
-      # @ which will also match the portion of the entry point in
-      # @ pyproject.toml that comes before the '=',
-      # @ ie, 'single_channel' or 'pmw_89pct' as found in
-      # @ geoips/pyproject.toml project.entry-points."geoips.algorithms".
+      # @ "name" specifies the name of the algorithm to apply. This plugin may
+      # @ be defined in any correctly installed GeoIPS plugin package including
+      # @ this one.
       name: pmw_89test
-      # @ Additional arguments to pass directly to the algorithm plugin.
-      # @ If none are required, pass {}
-      # @ Fields under "arguments" must match arguments within your
-      # @ specified algorithm plugin.
+      # @ Arguments to be passed to the algorithm plugin. These must match the
+      # @ arguments accepted by the specified plugin.
       arguments:
         output_data_range: [105.0, 280.0]
         min_outbounds: crop
@@ -68,50 +56,30 @@ spec:
         inverse: null
   colormap:
     plugin:
-      # @ The colormap "name" specifies a geoips colormap plugin installed
-      # @ via entry points, in any repository.
-      # @ This string must match the "name" attribute on the colormap plugin,
-      # @ which will also match the portion of the entry point in
-      # @ pyproject.toml that comes before the '=',
-      # @ geoips/pyproject.toml project.entry-points."geoips.colormaps".
-      # @ ie, 'visir.Infrared' or 'matplotlib_linear_norm' as found in geoips/setup.py 'geoips.user_colormaps'.
+      # @ "name" specifies the name of the colormap plugin to apply when writing
+      # out an imagery product.
       name: pmw_89pct
-      # @ Additional arguments to pass directly to the colormap plugin.
-      # @ If none are required, pass {}
-      # @ Fields under "arguments" must match arguments within your
-      # @ specified colormap plugin.
+      # @ Arguments to be passed to the colormap plugin. These must match the
+      # @ arguments accepted by the specified plugin.
       arguments:
         data_range: [105, 280]
   interpolator:
     plugin:
-      # @ The colormap "name" specifies a geoips interpolator plugin installed
-      # @ via entry points, in any repository.
-      # @ This string must match the "name" attribute on the interpolator plugin,
-      # @ which will also match the portion of the entry point in
-      # @ geoips/pyproject.toml project.entry-points."geoips.interpolator".
-      # @ ie, 'pyresample_wrappers.interp_nearest' or 'scipy_wrappers.interp_grid'
-      # @ Interpolation routines are used when reprojecting to a requested
-      # @ area definition.
+      # @ "name" specifies the name of the interpolator plugin to use when
+      # @ reprojecting the data.
       name: interp_gauss
-      # @ Additional arguments to pass directly to the interpolator plugin.
-      # @ If none are required, pass {}
-      # @ Fields under "arguments" must match arguments within your
-      # @ specified interpolator plugin.
+      # @ Arguments to be passed to the interpolator plugin. These must match the
+      # @ arguments accepted by the specified plugin.
       arguments:
         sigmaval: 10000
+  # @ Coverage checks are used to
+  # @   a) determine if there is sufficient coverage to product a product and
+  # @   b) include % coverage in filename and metadata if required.
   coverage_checker:
     plugin:
-      # @ The coverage_checker "name" specifies a geoips coverage_checker
-      # @ plugin installed via entry points, in any repository.
-      # @ This string must match the "name" attribute on the coverage_checker
-      # @ plugin which will also match the portion of the entry point in
-      # @ geoips/pyproject.toml project.entry-points."geoips.coverage_checkers".
-      # @ Coverage checks are used to
-      # @   a) determine if there is sufficient coverage to product a product and
-      # @   b) include % coverage in filename and metadata if required.
+      # @ "name" specifies the name of the coverage_checker plugin to use when
+      # @ determining how much coverage a product has over its domain.
       name: masked_arrays
-      # @ Additional arguments to pass directly to the coverage_checker plugin.
-      # @ If none are required, pass {}
-      # @ Fields under "arguments" must match arguments within your
-      # @ specified coverage_checker plugin.
+      # @ Arguments to be passed to the coverage_checker plugin. These must match the
+      # @ arguments accepted by the specified plugin.
       arguments: {}

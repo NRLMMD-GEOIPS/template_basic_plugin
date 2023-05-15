@@ -49,17 +49,13 @@ spec:
         The amsr2_family implementation of 89 MHz Polarization Corrected
         Brightness Temperature.
 
-      # @ "family" is a string that identifies the valid fields within this product.
-      # @ These are currently specified within geoips/schema/product_defaults
-      # @ - your product type must match a valid schema.
-      # @ The product "family" also specifies what operations must be applied to the dataset
-      # @ for a given product, and in what order.  The processing workflows handle
-      # @ ensuring each step is applied appropriately based on the product "family"
-      # @ Thus, only supported product families will behave appropriately within
-      # @ GeoIPS.  If a new unsupported order of operations is required for a given
-      # @ product, support for that product_type must be added in the main GeoIPS
-      # @ infrastructure - please contact the GeoIPS Team if you require a new
-      # @ product_type.
+      # @ "family" is a string that identifies which operations will be applied to the
+      # @ input data and in which order they will be applied. This also means that it
+      # @ identifies which plugins need to be specified for the product.
+      # @
+      # @ For example, a product in the "interpolator_algorithm_colormap" family will
+      # @ apply plugins in the order "interpolator -> algorithm -> colormap" and will
+      # @ require each of those plugins to be supplied in the product definition.
       family: interpolator_algorithm_colormap
 
       spec:

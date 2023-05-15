@@ -1,16 +1,32 @@
 # @ Replace all instances of @ within this template with appropriate values for your
 # @ particular use case. Then remove all lines within this file containing "@"
 
-# @ "products" YAML files are used to specify which products are valid for a given
-# @            source within GeoIPS, and specify additional parameters required to
-# @            generate a particular product for a given source (ie, variables, data
-# @            ranges, etc)
-# @            Any fields that are specified within "products" will override
-# @            those within "product_defaults"
+# @ This file defines a plugin for the "products" interface.
+# @
+# @ This products plugin belongs to the "list" family which means that it contains a
+# @ list of one or more individual product plugins.
+# @
+# @ Each product plugin defined in this file (only one) defines a new GeoIPS product.
+# @ Each product specifies which data source (source_name) it is valid for, which family
+# @ family the product belongs to, which plugins to use to produce the product (e.g.
+# @ which algorithm, interpolator, and colormap plugins), and the arguments to be
+# @ passed to each of those plugins.
+# @
+# @ Each product can be specified in two ways:
+# @ - It can specify its "family" and fully specify all plugins and agruments
+# @   directly here.
+# @ - It can specify a "product_defaults" plugin from which to collect its "family", its
+# @   plugins, and its plugin arguments. When using a "product_defaults" plugin, the
+# @   default values can additionally be overridden in this product definition.
+# @
+# @ This file uses the "product_defaults" method of specification. The family method can
+# @ be seen in the accompanying "amsr2_family.yaml" file.
 
+# @ Product plugins always use the "products" interface
 interface: products
+# @ Specify that this is a list of product plugins
 family: list
-# @ This uniquely identifies the product list plugin
+# @ Uniquely identify the product list plugin
 name: amsr2_product_defaults
 # @ Include your own descriptive docstring that describes this list of products.
 docstring: |
@@ -18,16 +34,14 @@ docstring: |
 
 spec:
   products:
-    # @ name is the *case-sensitive* identifier for an individual product
-    # @ By convention, product names should use '-' as a delimeter and start each word
-    # @ with a capital letter.
+    # @ Below is a list of products. In this case there is only one product, but
+    # @ additional products can be defined as additional elements in the YAML list.
+
+    # @ name is a unique, *case-sensitive* identifier for an individual product.
+    # @ GeoIPS convention for product names is to use numbers, letters, and hyphens.
     - name: 89-PCT-Product-Defaults
 
       # @ source_name must be a valid geoips "source_name".
-      # @ Presently, this can only be found by examining the reader for that particular
-      # @ data type.
-      # @ Readers may be specified in any plugin package, not just this one or the main
-      # @ GeoIPS package.
       source_name: amsr2
 
       # @ Include your own descriptive docstring that describes this particular product.
@@ -35,7 +49,8 @@ spec:
         The amsr2_product_defaults implementation of 89 MHz Polarization Corrected
         Brightness Temperature.
 
-      # @ product_defaults references a "product_defaults" plugin (found in any repo)
+      # @ product_defaults references a "product_defaults" plugin (may be found
+      # @ in any repo)
       product_defaults: 89-PCT-Test
 
       spec:
