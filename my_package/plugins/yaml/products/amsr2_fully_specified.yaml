@@ -27,7 +27,7 @@ interface: products
 # @ Specify that this is a list of product plugins
 family: list
 # @ Uniquely identify the product list plugin
-name: amsr2_family
+name: amsr2_fully_specified
 # @ Include your own descriptive docstring that describes this list of products.
 docstring: |
   AMSR-2 product, fully defined using a family
@@ -39,14 +39,14 @@ spec:
 
     # @ name is a unique, *case-sensitive* identifier for an individual product.
     # @ GeoIPS convention for product names is to use numbers, letters, and hyphens.
-    - name: 89-PCT-Family
+    - name: 89-PCT-Fully-Specified
 
       # @ source_name must be a valid geoips "source_name".
       source_name: amsr2
 
       # @ Include your own descriptive docstring that describes this particular product.
       docstring: |
-        The amsr2_family implementation of 89 MHz Polarization Corrected
+        The amsr2_fully_specified implementation of 89 MHz Polarization Corrected
         Brightness Temperature.
 
       # @ "family" is a string that identifies which operations will be applied to the
