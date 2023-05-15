@@ -41,6 +41,7 @@ outputs:
     product_names:
       - 89-PCT-Fully-Specified # @product1@
       - 89-PCT-Product-Defaults # @product2@
+      - 89pct
     # @ Update this path to the directory you want to store your "correct" outputs in.
     # @ <output> and <product> are auto-populated at runtime, so can remain unchanged.
     compare_path: !ENV ${GEOIPS_PACKAGES_DIR}/template_basic_plugin/tests/outputs/amsr2.<output>.<product>
@@ -56,3 +57,4 @@ outputs:
     product_names:
       - 89-PCT-Fully-Specified # @product1@
       - 89-PCT-Product-Defaults # @product2@
+      - color37
