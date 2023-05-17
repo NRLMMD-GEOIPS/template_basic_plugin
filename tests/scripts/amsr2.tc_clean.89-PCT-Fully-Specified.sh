@@ -54,12 +54,25 @@ run_procflow \
     $GEOIPS_TESTDATA_DIR/test_data_amsr2/data/AMSR2-MBT_v2r2_GW1_s202005180620480_e202005180759470_c202005180937100.nc \
     --procflow single_source \
     --reader_name amsr2_netcdf \
-    --product_name "89-Test" \
-    --compare_path "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/outputs/amsr2.global_clean.89-Test" \
+    --product_name "89-PCT-Fully-Specified" \
+    --compare_path "${GEOIPS_PACKAGES_DIR}/template_basic_plugin/tests/outputs/amsr2.tc_clean.89-PCT-Fully-Specified" \
     --output_formatter imagery_clean \
-    --filename_formatter geoips_fname \
-    --minimum_coverage 0 \
-    --sector_list global
+    --filename_formatter tc_clean_fname \
+    --trackfiles ${GEOIPS_PACKAGES_DIR}/geoips/tests/sectors/tc_bdecks/bio012020.dat \
+    --trackfile_parser bdeck_parser
 ss_retval=$?
+
+# Example for modifying command line call. Switch to an "annotated" image, then
+# modify 89-Test product to swap out colormaps, ranges, etc.
+# run_procflow \
+#     $GEOIPS_TESTDATA_DIR/test_data_amsr2/data/AMSR2-MBT_v2r2_GW1_s202005180620480_e202005180759470_c202005180937100.nc \
+#     --procflow single_source \
+#     --reader_name amsr2_netcdf \
+#     --product_name "89-Test" \
+#     --output_formatter imagery_annotated \
+#     --filename_formatter tc_fname \
+#     --trackfiles ${GEOIPS_PACKAGES_DIR}/geoips/tests/sectors/tc_bdecks/bio012020.dat \
+#     --trackfile_parser bdeck_parser
+# ss_retval=$?
 
 exit $((ss_retval))
