@@ -9,7 +9,7 @@
 # @ Each product plugin defined in this file (only one) defines a new GeoIPS product.
 # @ Each product specifies which data source (source_name) it is valid for, which family
 # @ family the product belongs to, which plugins to use to produce the product (e.g.
-# @ which algorithm, interpolator, and colormap plugins), and the arguments to be
+# @ which algorithm, interpolator, and colormapper plugins), and the arguments to be
 # @ passed to each of those plugins.
 # @
 # @ Each product can be specified in two ways:
@@ -53,10 +53,10 @@ spec:
       # @ input data and in which order they will be applied. This also means that it
       # @ identifies which plugins need to be specified for the product.
       # @
-      # @ For example, a product in the "interpolator_algorithm_colormap" family will
-      # @ apply plugins in the order "interpolator -> algorithm -> colormap" and will
+      # @ For example, a product in the "interpolator_algorithm_colormapper" family will
+      # @ apply plugins in the order "interpolator -> algorithm -> colormapper" and will
       # @ require each of those plugins to be supplied in the product definition.
-      family: interpolator_algorithm_colormap
+      family: interpolator_algorithm_colormapper
 
       spec:
         # @ Variables must match variable names found in the reader for this data type!
@@ -78,12 +78,12 @@ spec:
               max_outbounds: mask
               norm: null
               inverse: null
-        colormap:
+        colormapper:
           plugin:
-            # @ "name" specifies the name of the colormap plugin to apply when writing
-            # out an imagery product.
+            # @ "name" specifies the name of the colormapper plugin to apply when
+            # writing out an imagery product.
             name: pmw_89pct
-            # @ Arguments to be passed to the colormap plugin. These must match the
+            # @ Arguments to be passed to the colormapper plugin. These must match the
             # @ arguments accepted by the specified plugin.
             arguments:
               data_range: [105, 280]
@@ -104,6 +104,6 @@ spec:
             # @ "name" specifies the name of the coverage_checker plugin to use when
             # @ determining how much coverage a product has over its domain.
             name: masked_arrays
-            # @ Arguments to be passed to the coverage_checker plugin. These must match the
-            # @ arguments accepted by the specified plugin.
+            # @ Arguments to be passed to the coverage_checker plugin. These must match
+            # @ the arguments accepted by the specified plugin.
             arguments: {}

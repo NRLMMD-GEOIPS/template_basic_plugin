@@ -15,7 +15,7 @@
 # test outputs - at that point you can populate the "tests/outputs" directory, and your next run will result
 # in a 0 return value.
 
-reader_name: amsr2_netcdf # @readername@ - appropriate readername
+reader_name: amsr2_netcdf # @readername@ - replace "amsr2_netcdf" with appropriate readername
 sectored_read: False # @ Almost always False, except for ABI or AHI
 
 available_sectors:

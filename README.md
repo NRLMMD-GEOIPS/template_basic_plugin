@@ -35,7 +35,6 @@ the GeoIPS ecosystem.  Please see the
 [GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips#readme) for
 more information on the GeoIPS plugin architecture and base infrastructure.
 
-
 Package Overview
 -----------------
 
@@ -73,9 +72,12 @@ Install @package@ package
 ```bash
 
     # Ensure GeoIPS Python environment is enabled.
-    
+
+    # Clone and install @package@
     git clone https://github.com/NRLMMD-GEOIPS/@package@ $GEOIPS_PACKAGES_DIR/@package@
     pip install -e $GEOIPS_PACKAGES_DIR/@package@
+
+    # Add any additional clone/install/setup steps here
 ```
 
 Test @package@ installation
@@ -85,7 +87,8 @@ Test @package@ installation
     # Ensure GeoIPS Python environment is enabled.
 
     # This script will run ALL tests within this package
-    # @ You can add additional individual test calls if desired
-    # @  (rather than forcing the user to run the full test)
     $GEOIPS_PACKAGES_DIR/@package@/tests/test_all.sh
+
+    # Individual direct test calls, for reference
+    $GEOIPS_PACKAGES_DIR/@package@/tests/scripts/<test_script_name>.sh
 ```

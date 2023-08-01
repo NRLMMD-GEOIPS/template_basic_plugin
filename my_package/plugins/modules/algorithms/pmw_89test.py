@@ -1,11 +1,3 @@
-# @ An algorithm plugin specifies data manipulation steps required for a particualr
-# @ product. When and how the "algorithm" is applied is determined by the "product"
-# @ family.
-
-# @ Replace all instances of @ within this template with appropriate values for
-# @ your particular use case.
-# @ Once complete, remove all lines containing "@" from this file.
-
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
 # # #
 # # # Author:
@@ -17,6 +9,14 @@
 # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+# @ An algorithm plugin specifies data manipulation steps required for a particualr
+# @ product. When and how the "algorithm" is applied is determined by the "product"
+# @ family.
+
+# @ Replace all instances of @ within this template with appropriate values for
+# @ your particular use case.
+# @ Once complete, remove all lines containing "@" from this file.
 
 """Sample algorithm plugin, duplicate of "89pct".
 
@@ -67,14 +67,26 @@ def call(
     ----------
     arrays : list of numpy.ndarray
         * list of numpy.ndarray or numpy.MaskedArray of channel data
-            and other variables, in order of sensor "variables" list
-        * Channel data: Degrees Kelvin
+          and other variables, in order of sensor "variables" list
+        * Channel data should be in degrees Kelvin
+    output_data_range: list of float
+        * List containing minimum and maximum value for final output data.
+    min_outbounds: str, default="crop"
+        * Operation to perform for data below minimum value
+        * crop or mask
+    max_outbounds: str, default="mask"
+        * Operation to perform for data above maximum value
+        * crop or mask
+    norm: bool, default=False
+        * Specify whether to normalize the data or not.
+    inverse: bool, default=False
+        * Specify whether to invert the data or not.
 
     Returns
     -------
     numpy.ndarray
-        numpy.ndarray or numpy.MaskedArray of appropriately scaled channel data,
-        in degrees Kelvin.
+        * numpy.ndarray or numpy.MaskedArray of appropriately scaled channel data
+        * degrees Kelvin.
     """
     # @ Put your actual data manipulation steps within the function body.
     # @ This is a duplicate of the 89pct algorithm.

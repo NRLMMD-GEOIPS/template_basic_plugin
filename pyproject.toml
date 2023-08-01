@@ -36,8 +36,8 @@ entry-points = {file = ["entry-points.ini"]}
 "version_scheme" = "post-release"  # Use current version .postN vs incrementing
 "local_scheme" = "no-local-version"  # Don't include hash, or date, just postN
 # @ Update with your package name, ie:
-# @ "write_to" = "@package@/version.py"  # Write an actual file
-"write_to" = "my_package/version.py"  # Write an actual file
+# @ "write_to" = "@package@/_version.py"  # Write an actual file
+"write_to" = "my_package/_version.py"  # Write an actual file
 
 [project]
 # @ Update with your package name, ie:

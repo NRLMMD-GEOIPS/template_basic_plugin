@@ -9,7 +9,7 @@
 # @ Each product plugin defined in this file (only one) defines a new GeoIPS product.
 # @ Each product specifies which data source (source_name) it is valid for, which family
 # @ family the product belongs to, which plugins to use to produce the product (e.g.
-# @ which algorithm, interpolator, and colormap plugins), and the arguments to be
+# @ which algorithm, interpolator, and colormapper plugins), and the arguments to be
 # @ passed to each of those plugins.
 # @
 # @ Each product can be specified in two ways:

@@ -18,9 +18,11 @@ Instructions for setting up repository from template
 *IMPORTANT NOTE: In all commands below, replace @package@ with the name that
 you want for your plugin package.*
 
-
 #. Clone the template repository and push it to a repo of your own
 
+   * Change to the GeoIPS packages directory (set during GeoIPS install).
+
+     * ``cd $GEOIPS_PACKAGES_DIR``
    * Clone this repo:
      ``git clone https://github.com/NRLMMD-GEOIPS/template_basic_plugin.git``
    * Move to your package name: ``mv template_basic_plugin @package@``

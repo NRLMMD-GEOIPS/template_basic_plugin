@@ -13,7 +13,7 @@
 
 # @ NOTE: Once the command line interface has been finalized, much of these
 # @       instructions will be replaced with calls to the command line
-# @       interface in order to identify available algorithms, colormaps, etc.
+# @       interface in order to identify available algorithms, colormappers, etc.
 # @       In the meantime, these instructions will point you towards the code
 # @       itself that is referenced in the various pieces of the product
 # @       specification.
@@ -24,10 +24,10 @@ interface: product_defaults
 # @ input data and in which order they will be applied. This also means that it
 # @ identifies which plugins need to be specified for the product.
 # @
-# @ For example, a product in the "interpolator_algorithm_colormap" family will
-# @ apply plugins in the order "interpolator -> algorithm -> colormap" and will
+# @ For example, a product in the "interpolator_algorithm_colormapper" family will
+# @ apply plugins in the order "interpolator -> algorithm -> colormapper" and will
 # @ require each of those plugins to be supplied in the product definition.
-family: interpolator_algorithm_colormap
+family: interpolator_algorithm_colormapper
 
 # @ "name" specifies the name of the product_defaults plugin and is how it can be
 # @ referenced from a product plugin.
@@ -54,12 +54,12 @@ spec:
         max_outbounds: mask
         norm: null
         inverse: null
-  colormap:
+  colormapper:
     plugin:
-      # @ "name" specifies the name of the colormap plugin to apply when writing
+      # @ "name" specifies the name of the colormapper plugin to apply when writing
       # out an imagery product.
       name: pmw_89pct
-      # @ Arguments to be passed to the colormap plugin. These must match the
+      # @ Arguments to be passed to the colormapper plugin. These must match the
       # @ arguments accepted by the specified plugin.
       arguments:
         data_range: [105, 280]
