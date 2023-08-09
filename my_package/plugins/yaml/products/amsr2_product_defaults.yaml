@@ -42,7 +42,7 @@ spec:
     - name: 89-PCT-Product-Defaults
 
       # @ source_name must be a valid geoips "source_name".
-      source_name: amsr2
+      source_names: [amsr2]
 
       # @ Include your own descriptive docstring that describes this particular product.
       docstring: |
