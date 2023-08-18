@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
 # # #
 # # # Author:
@@ -21,7 +22,7 @@
 # tests look for the tests/test_all.sh script for complete testing.
 
 # This should contain test calls to cover ALL required functionality tests
-# for the @package@ repo.
+# for this repo.
 
 # The $GEOIPS_PACKAGES_DIR/geoips tests modules sourced within this script handle:
    # setting up the appropriate associative arrays for tracking the overall
@@ -39,9 +40,12 @@ if [[ ! -d $GEOIPS_PACKAGES_DIR/geoips ]]; then
     exit 1
 fi
 
-# @ Pass the name of your package to "test_all_pre.sh", ie
-# . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh @package@
-. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh my_package
+repopath=`dirname $0`/../
+
+# @ Set the name of your package, for use in build_docs.sh and test_all_pre.sh, ie:
+# pkgname=@package@
+pkgname=my_package
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh $pkgname
 
 # @ NOTE: Update "template_basic_plugin" paths below to point to your package's
 # @ test scripts, ie
@@ -53,10 +57,11 @@ echo ""
 
 for call in \
 \
-    "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all `dirname $0`/../" \
-    "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/test_config.sh" \
-    "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.global_clean.89-PCT-Product-Defaults.sh" \
-    "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.tc_clean.89-PCT-Fully-Specified.sh"
+  "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all $repopath" \
+  "$GEOIPS_PACKAGES_DIR/geoips/docs/build_docs.sh $repopath $pkgname html_only" \
+  "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/test_config.sh" \
+  "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.global_clean.89-PCT-Product-Defaults.sh" \
+  "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.tc_clean.89-PCT-Fully-Specified.sh"
 do
     . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done
