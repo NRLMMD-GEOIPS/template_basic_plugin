@@ -34,11 +34,11 @@ spec:
             arguments:
               output_data_range: [0, 20]
               scale_factor: 0.001
-    - name: My-ASCII-Cloud-Base-Height
+    - name: Cloud-Base-ASCII-Palette-Colors
       source_names: [clavrx]
       docstring: |
-        CLAVR-x Purple Cloud Base Height,
-        using an ascii-based colormapper
+        CLAVR-x Cloud Base Height,
+        using an ascii palette on disk for colors
       product_defaults: Cloud-Height
       spec:
         variables: ["cld_height_base", "latitude", "longitude"]
@@ -48,12 +48,12 @@ spec:
             arguments:
               cmap_name: tpw_pwat
               cmap_source: ascii
-              cmap_path: /users/surratt/geoips/geoips/geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
-    - name: My-BuiltIn-Cloud-Base-Height
+              # cmap_path: ../geoips/geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
+    - name: Cloud-Base-Builtin-Colors
       source_names: [clavrx]
       docstring: |
-        CLAVR-x Purple Cloud Base Height,
-        using an ascii-based colormapper
+        CLAVR-x Cloud Base Height,
+        using built-in matplotloib colors
       product_defaults: Cloud-Height
       spec:
         variables: ["cld_height_base", "latitude", "longitude"]
@@ -63,15 +63,15 @@ spec:
             arguments:
               cmap_name: gnuplot
               cmap_source: matplotlib
-    - name: My-Colorful-Cloud-Base-Height
+    - name: Cloud-Base-Python-Colors
       source_names: [clavrx]
       docstring: |
         CLAVR-x Colorful Cloud Base Height,
-        using a python-based colormapper
+        using a python-based custom colormapper
       product_defaults: Cloud-Height
       spec:
         variables: ["cld_height_base", "latitude", "longitude"]
         colormapper:
           plugin:
-            name: python_cloud_height
+            name: colorful_cloud_height
             arguments: {}
