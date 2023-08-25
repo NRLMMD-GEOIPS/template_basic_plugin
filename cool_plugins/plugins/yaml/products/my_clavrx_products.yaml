@@ -1,0 +1,77 @@
+interface: products
+family: list
+name: amsr2_product_defaults
+docstring: |
+  AMSR-2 products using product_defaults
+
+spec:
+  products:
+    - name: My-Cloud-Top-Height
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Cloud Top Height
+      product_defaults: Cloud-Height
+      spec:
+        variables: ["cld_height_acha", "latitude", "longitude"]
+    - name: My-Cloud-Base-Height
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Cloud Base Height
+      product_defaults: Cloud-Height
+      spec:
+        variables: ["cld_height_base", "latitude", "longitude"]
+    - name: My-Cloud-Depth
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Cloud Depthe
+      product_defaults: Cloud-Height
+      spec:
+        variables:
+          ["cld_height_acha", "cld_height_base", "latitude", "longitude"]
+        algorithm:
+          plugin:
+            name: my_cloud_depth
+            arguments:
+              output_data_range: [0, 20]
+              scale_factor: 0.001
+    - name: My-ASCII-Cloud-Base-Height
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Purple Cloud Base Height,
+        using an ascii-based colormapper
+      product_defaults: Cloud-Height
+      spec:
+        variables: ["cld_height_base", "latitude", "longitude"]
+        colormapper:
+          plugin:
+            name: matplotlib_linear_norm
+            arguments:
+              cmap_name: tpw_pwat
+              cmap_source: ascii
+              cmap_path: /users/surratt/geoips/geoips/geoips/plugins/txt/ascii_palettes/tpw_pwat.txt
+    - name: My-BuiltIn-Cloud-Base-Height
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Purple Cloud Base Height,
+        using an ascii-based colormapper
+      product_defaults: Cloud-Height
+      spec:
+        variables: ["cld_height_base", "latitude", "longitude"]
+        colormapper:
+          plugin:
+            name: matplotlib_linear_norm
+            arguments:
+              cmap_name: gnuplot
+              cmap_source: matplotlib
+    - name: My-Colorful-Cloud-Base-Height
+      source_names: [clavrx]
+      docstring: |
+        CLAVR-x Colorful Cloud Base Height,
+        using a python-based colormapper
+      product_defaults: Cloud-Height
+      spec:
+        variables: ["cld_height_base", "latitude", "longitude"]
+        colormapper:
+          plugin:
+            name: python_cloud_height
+            arguments: {}
