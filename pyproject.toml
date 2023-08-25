@@ -48,4 +48,8 @@ dynamic = ["version"]
 
 [project.entry-points."geoips.algorithms"]
 "pmw_89test" = "cool_plugins.plugins.modules.algorithms.pmw_89test"
+"my_cloud_depth" = "cool_plugins.plugins.modules.algorithms.my_cloud_depth"
+
+[project.entry-points."geoips.colormappers"]
+"colorful_cloud_height" = "cool_plugins.plugins.modules.colormappers.colorful_cloud_height"
 
