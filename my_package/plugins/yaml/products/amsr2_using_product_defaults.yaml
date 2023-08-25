@@ -27,7 +27,7 @@ interface: products
 # @ Specify that this is a list of product plugins
 family: list
 # @ Uniquely identify the product list plugin
-name: amsr2_product_defaults
+name: amsr2_using_product_defaults
 # @ Include your own descriptive docstring that describes this list of products.
 docstring: |
   AMSR-2 products using product_defaults
@@ -39,15 +39,16 @@ spec:
 
     # @ name is a unique, *case-sensitive* identifier for an individual product.
     # @ GeoIPS convention for product names is to use numbers, letters, and hyphens.
-    - name: 89-PCT-Product-Defaults
+    - name: 89-PCT-Using-Product-Defaults
 
       # @ source_name must be a valid geoips "source_name".
       source_names: [amsr2]
 
       # @ Include your own descriptive docstring that describes this particular product.
       docstring: |
-        The amsr2_product_defaults implementation of 89 MHz Polarization Corrected
-        Brightness Temperature.
+        89 MHz Polarization Corrected Brightness Temperature implementation
+        using the 89-PCT-Test product defaults in the product definition.
+       
 
       # @ product_defaults references a "product_defaults" plugin (may be found
       # @ in any repo)
