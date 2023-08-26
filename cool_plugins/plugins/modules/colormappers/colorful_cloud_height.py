@@ -39,7 +39,7 @@ def call(data_range=[0, 20]):
     max_val = data_range[1]
 
     if min_val >= 1 or max_val <= 10:
-        raise ("cloud hieght_base range MUST include 1 and 10")
+        raise ("cloud height_base range MUST include 1 and 10")
 
     from geoips.image_utils.colormap_utils import create_linear_segmented_colormap
 
@@ -86,7 +86,7 @@ def call(data_range=[0, 20]):
 
     mpl_norm = Normalize(vmin=min_val, vmax=max_val)
 
-    cbar_label = "Cloud Hieght (km)"
+    cbar_label = "Cloud Height (km)"
 
     # Must be uniform or proportional, None not valid for Python 3
     cbar_spacing = "proportional"
