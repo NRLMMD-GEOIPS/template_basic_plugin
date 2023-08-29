@@ -28,12 +28,11 @@ def call(
     output_data_range,
     scale_factor,
     min_outbounds="crop",
-    max_outbounds="mask",
+    max_outbounds="crop",
     norm=False,
     inverse=False,
 ):
-    """My cloud depth product algorithm manipulation steps.
-    """
+    """My cloud depth product algorithm manipulation steps."""
     cth = arrays[0]
     cbh = arrays[1]
 

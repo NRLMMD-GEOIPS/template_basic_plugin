@@ -1,8 +1,8 @@
 interface: products
 family: list
-name: amsr2_product_defaults
+name: my_clavrx_products
 docstring: |
-  AMSR-2 products using product_defaults
+  CLAVR-x Imagery Products
 
 spec:
   products:
@@ -23,7 +23,7 @@ spec:
     - name: My-Cloud-Depth
       source_names: [clavrx]
       docstring: |
-        CLAVR-x Cloud Depthe
+        CLAVR-x Cloud Depth
       product_defaults: Cloud-Height
       spec:
         variables:

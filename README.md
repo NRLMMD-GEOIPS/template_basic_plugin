@@ -10,6 +10,17 @@
     # # # for more details. If you did not receive the license, for more information see:
     # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
+Basic GeoIPS Plugin Template
+=============================
+
+This template repository contains everything necessary to create a fully
+compatible GeoIPS Plugin Package.  Each file within this repository contains
+appropriate modification instructions.
+
+To create your own functional plugin for GeoIPS, follow the
+[step by step instructions](./docs/source/userguide/template_instructions.rst) for
+modifying the template files within this repo.
+
 cool_plugins GeoIPS Plugin
 ==========================
 
@@ -21,13 +32,14 @@ more information on the GeoIPS plugin architecture and base infrastructure.
 Package Overview
 -----------------
 
-The cool_plugins plugin provides the capability for being Cool.
+The cool_plugins plugin provides the capability for creating Cool Plugins.
 
 System Requirements
 ---------------------
 
 * geoips >= 1.10.0
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
+* Coolness.
 
 IF REQUIRED: Install base geoips package
 ------------------------------------------------------------

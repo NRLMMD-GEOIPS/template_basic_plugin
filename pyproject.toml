@@ -53,23 +53,3 @@ dynamic = ["version"]
 [project.entry-points."geoips.colormappers"]
 "colorful_cloud_height" = "cool_plugins.plugins.modules.colormappers.colorful_cloud_height"
 
-# @ Add your own required entry points, based on your new functionality
-# [project.entry-points."geoips.algorithms"]
-# "@my_alg@" = "@package@.plugins.modules.algorithms.@my_alg@"
-# [project.entry-points."geoips.colormappers"]
-# "@my_cmap@" = "@package@.plugins.modules.colormappers.@my_cmap@"
-# [project.entry-points."geoips.interpolators"]
-# "@my_interp@" = "@package@.plugins.modules.interpolators.@my_interp@"
-# [project.entry-points."geoips.output_formatters"]
-# "@my_output_format_1@" = "@package@.plugins.modules.output_formatters.@my_output_format_1@"
-# "@my_output_format_2@" = "@package@.plugins.modules.output_formatters.@my_output_format_2@"
-# [project.entry-points."geoips.readers"]
-# "@my_reader@" = "@package@.plugins.modules.readers.@myreader@"
-# [project.entry-points."geoips.trackfile_parsers"]
-# "@my_parser@" = "@package@.plugins.modules.trackfile_parsers.@my_parser@"
-# [project.entry-points."geoips.filename_formatters"]
-# "@my_fname@" = "@package@.plugins.modules.filename_formatters.@my_fname@"
-# [project.entry-points."geoips.title_formatters"]
-# "@my_title@" = "@package@.plugins.modules.title_formatters.@my_title@"
-# [project.entry-points."geoips.coverage_checkers"]
-# "@my_covg@" = "@package@.plugins.modules.coverage_checkers.@my_covg@"
