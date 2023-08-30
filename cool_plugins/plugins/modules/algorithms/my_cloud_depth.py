@@ -44,7 +44,7 @@ def call(
     from geoips.data_manipulations.corrections import apply_data_range
 
     data = apply_data_range(
-        out.to_masked_array(),
+        out,
         min_val=output_data_range[0],
         max_val=output_data_range[1],
         min_outbounds=min_outbounds,
