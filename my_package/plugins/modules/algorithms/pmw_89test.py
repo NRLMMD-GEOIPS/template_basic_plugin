@@ -68,10 +68,18 @@ def call(
 
     Parameters
     ----------
-    arrays : list of numpy.ndarray
-        * list of numpy.ndarray or numpy.MaskedArray of channel data
-          and other variables, in order of sensor "variables" list
+    xobj : xarray Dataset
+        * xarray dataset containing variables "variables" of channel data
         * Channel data should be in degrees Kelvin
+    variables: list of str
+        * List of variables that will be used out of xobj within this algorithm.
+        * These variables are retrieved from the list of variables in the product
+          plugin.
+    product_name: str
+        * Name of the product that is being produced.
+        * Retrieved from the product plugin.
+        * This will be the variable name of the final manipulated dataset
+          that will be added to the return xarray Dataset.
     output_data_range: list of float
         * List containing minimum and maximum value for final output data.
     min_outbounds: str, default="crop"
@@ -87,8 +95,9 @@ def call(
 
     Returns
     -------
-    numpy.ndarray
-        * numpy.ndarray or numpy.MaskedArray of appropriately scaled channel data
+    xarray Dataset
+        * xarray Dataset containing the original variables, plus variable
+          "product_name" of appropriately scaled channel data
         * degrees Kelvin.
     """
     # @ Put your actual data manipulation steps within the function body.
@@ -101,6 +110,7 @@ def call(
     from geoips.data_manipulations.corrections import apply_data_range
 
     data = apply_data_range(
+        # Currently, apply_data_range only takes numpy arrays, will soon be updated to handle xarray.
         out.to_masked_array(),
         min_val=output_data_range[0],
         max_val=output_data_range[1],
