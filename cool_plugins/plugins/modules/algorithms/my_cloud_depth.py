@@ -53,4 +53,4 @@ def call(
         inverse=inverse,
     )
     xobj[product_name] = DataArray(data)
-    return data
+    return xobj
