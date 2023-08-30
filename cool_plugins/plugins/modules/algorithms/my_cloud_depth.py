@@ -19,12 +19,14 @@ import logging
 LOG = logging.getLogger(__name__)
 
 interface = "algorithms"
-family = "list_numpy_to_numpy"
+family = "xarray_to_xarray"
 name = "my_cloud_depth"
 
 
 def call(
-    arrays,
+    xobj,
+    variables,
+    product_name,
     output_data_range,
     scale_factor,
     min_outbounds="crop",
@@ -33,15 +35,15 @@ def call(
     inverse=False,
 ):
     """My cloud depth product algorithm manipulation steps."""
-    cth = arrays[0]
-    cbh = arrays[1]
+    cth = xobj[variables[0]]
+    cbh = xobj[variables[1]]
 
     out = (cth - cbh) * scale_factor
 
     from geoips.data_manipulations.corrections import apply_data_range
 
     data = apply_data_range(
-        out,
+        out.to_masked_array(),
         min_val=output_data_range[0],
         max_val=output_data_range[1],
         min_outbounds=min_outbounds,
@@ -49,5 +51,5 @@ def call(
         norm=norm,
         inverse=inverse,
     )
-
+    xobj[product_name] = DataArray(data)
     return data
