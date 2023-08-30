@@ -25,6 +25,7 @@ Data manipulation steps for the "89test" product, duplicate of "89pct".
 This algorithm expects Brightness Temperatures in units of degrees Kelvin
 """
 import logging
+from xarray import DataArray
 
 LOG = logging.getLogger(__name__)
 
@@ -41,7 +42,7 @@ interface = "algorithms"
 # @  * allowable kwargs
 # @ The processing workflows are able to pass data to the algorithm
 # @ appropriately based on the specified family.
-family = "list_numpy_to_numpy"
+family = "xarray_to_xarray"
 
 # @ The algorithm plugin "name" is a unique identifier for this algorithm plugin.
 name = "pmw_89test"
@@ -51,7 +52,9 @@ name = "pmw_89test"
 # @ The parameters and keyword arguments must match what is specified in
 # @ geoips/interfaces/module_based/algorithms.py
 def call(
-    arrays,
+    xobj,
+    variables,
+    product_name,
     output_data_range,
     min_outbounds="crop",
     max_outbounds="mask",
@@ -65,10 +68,18 @@ def call(
 
     Parameters
     ----------
-    arrays : list of numpy.ndarray
-        * list of numpy.ndarray or numpy.MaskedArray of channel data
-          and other variables, in order of sensor "variables" list
+    xobj : xarray Dataset
+        * xarray dataset containing variables "variables" of channel data
         * Channel data should be in degrees Kelvin
+    variables: list of str
+        * List of variables that will be used out of xobj within this algorithm.
+        * These variables are retrieved from the list of variables in the product
+          plugin.
+    product_name: str
+        * Name of the product that is being produced.
+        * Retrieved from the product plugin.
+        * This will be the variable name of the final manipulated dataset
+          that will be added to the return xarray Dataset.
     output_data_range: list of float
         * List containing minimum and maximum value for final output data.
     min_outbounds: str, default="crop"
@@ -84,21 +95,24 @@ def call(
 
     Returns
     -------
-    numpy.ndarray
-        * numpy.ndarray or numpy.MaskedArray of appropriately scaled channel data
+    xarray Dataset
+        * xarray Dataset containing the original variables, plus variable
+          "product_name" of appropriately scaled channel data
         * degrees Kelvin.
     """
     # @ Put your actual data manipulation steps within the function body.
     # @ This is a duplicate of the 89pct algorithm.
-    h89 = arrays[0]
-    v89 = arrays[1]
+    h89 = xobj[variables[0]]
+    v89 = xobj[variables[1]]
 
     out = (1.7 * v89) - (0.7 * h89)
 
     from geoips.data_manipulations.corrections import apply_data_range
 
     data = apply_data_range(
-        out,
+        # Currently, apply_data_range only takes numpy arrays
+        # will soon be updated to handle xarray.
+        out.to_masked_array(),
         min_val=output_data_range[0],
         max_val=output_data_range[1],
         min_outbounds=min_outbounds,
@@ -106,5 +120,5 @@ def call(
         norm=norm,
         inverse=inverse,
     )
-
-    return data
+    xobj[product_name] = DataArray(data)
+    return xobj
