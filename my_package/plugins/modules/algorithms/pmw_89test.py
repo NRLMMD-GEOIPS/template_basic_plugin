@@ -109,9 +109,6 @@ def call(
 
     from geoips.data_manipulations.corrections import apply_data_range
 
-    if min_outbounds == "mask":
-        out = out.where(output_data_range[0] <= out)
-
     data = apply_data_range(
         out,
         min_val=output_data_range[0],
