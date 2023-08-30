@@ -53,3 +53,5 @@ dynamic = ["version"]
 [project.entry-points."geoips.colormappers"]
 "colorful_cloud_height" = "cool_plugins.plugins.modules.colormappers.colorful_cloud_height"
 
+[project.entry-points."geoips.output_formatters"]
+"my_netcdf_output" = "cool_plugins.plugins.modules.output_formatters.my_netcdf_output"
