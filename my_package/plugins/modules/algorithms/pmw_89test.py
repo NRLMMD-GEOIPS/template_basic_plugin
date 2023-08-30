@@ -100,8 +100,11 @@ def call(
 
     from geoips.data_manipulations.corrections import apply_data_range
 
+    if min_outbounds == "mask":
+        out = out.where(output_data_range[0] <= out)
+
     data = apply_data_range(
-        out.to_masked_array(),
+        out,
         min_val=output_data_range[0],
         max_val=output_data_range[1],
         min_outbounds=min_outbounds,
@@ -110,4 +113,5 @@ def call(
         inverse=inverse,
     )
     xobj[product_name] = DataArray(data)
+
     return xobj
