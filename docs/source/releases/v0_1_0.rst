@@ -18,7 +18,7 @@ Version 0.1.0 (YYYY-MM-DD)
   rename release note file to match
 
   * @ ie, Version 0.1.0 -> docs/source/releases/v0_1_0.rst
-  * @ ie, Version 1.12.1 -> docs/source/releases/v1_12_1.rst
+  * @ ie, Version 1.14.0 -> docs/source/releases/v1_14_0.rst
   * @ Update docs/source/releases/index.rst with appropriate version number
 * @ Update all portions of this release note identified with "@"
 * @ Remove all lines containing "@"
