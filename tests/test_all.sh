@@ -21,8 +21,8 @@
 # Do not rename this script or test directory - automated integration
 # tests look for the tests/test_all.sh script for complete testing.
 
-# This should contain test calls to cover ALL required functionality tests
-# for this repo.
+# This should contain test calls to cover ALL required functionality
+# tests for this repo.
 
 # The $GEOIPS_PACKAGES_DIR/geoips tests modules sourced within this script handle:
    # setting up the appropriate associative arrays for tracking the overall
@@ -41,10 +41,12 @@ if [[ ! -d $GEOIPS_PACKAGES_DIR/geoips ]]; then
 fi
 
 repopath=`dirname $0`/../
-
 # @ Set the name of your package, for use in build_docs.sh and test_all_pre.sh, ie:
 # pkgname=@package@
 pkgname=my_package
+# Argument to test_all_pre.sh ONLY sets the prefix on the log output / filenames.
+# Used for clarity, and to differentiate potentially multiple "test_all.sh" scripts
+# in the same repo.
 . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh $pkgname
 
 # @ NOTE: Update "template_basic_plugin" paths below to point to your package's
@@ -54,7 +56,6 @@ pkgname=my_package
 echo ""
 # Note you must use the variable "call" in the for the loop
 # "call" used in test_all_run.sh
-
 for call in \
 \
   "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all $repopath" \
@@ -63,7 +64,7 @@ for call in \
   "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.global_clean.89-PCT-Using-Product-Defaults.sh" \
   "$GEOIPS_PACKAGES_DIR/template_basic_plugin/tests/scripts/amsr2.tc_clean.89-PCT-Fully-Specified.sh"
 do
-    . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
+  . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done
 
 . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_post.sh
