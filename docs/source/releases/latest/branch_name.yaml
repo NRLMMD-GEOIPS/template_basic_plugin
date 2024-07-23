@@ -1,0 +1,129 @@
+installation:
+- description: |
+    * @ Add all release notes in docs/source/releases/latest/*.yaml
+    * @ Remove all lines containing "@"
+    * @ You can run 'brassy -t' to generate a template YAML release note
+  files:
+    added:
+    - 'README.md'
+    - 'pyproject.toml'
+    deleted:
+    - ''
+    modified:
+    - ''
+    moved:
+    - ''
+  related-issue:
+    number: 0
+    repo_url: ''
+  title: 'Standard installation setup'
+enhancement:
+- description: |
+    * @functionality 1 description
+  files:
+    added:
+    - '@package@/plugins/modules/readers/@my_reader@'
+  related-issue:
+    number: 0
+    repo_url: 'https://github.com/NRLMMD-GEOIPS/geoips'
+  title: 'Add @reader functionality 1@'
+- description: |
+    * @functionality 2 description
+  files:
+    added:
+    - '@package@/plugins/modules/@module_type@/@my_reader@'
+  title: 'Add @module functionality 2@'
+testing:
+- description: |
+    Include
+
+    * complete test script for full package integration tests.
+    * Direct single source test calls.
+    * Complete functionality integration test.
+    * YAML procflow config to produce all available products.
+
+      * @product1 test description@
+      * @product2 test description@
+  files:
+    added:
+    - '@package@/plugins/modules/readers/@my_reader@'
+    - 'tests/test_all.sh'
+    - '@tests/scripts/@mydatatype@.tc.@product@.imagery_clean.sh@'
+    - 'tests/scripts/test_config.sh'
+    - 'tests/scripts/test_config.yaml'
+  title: 'Add @reader functionality 1@'
+continuous integration:
+- description: ''
+  files:
+    added:
+    - ''
+    deleted:
+    - ''
+    modified:
+    - ''
+    moved:
+    - ''
+  related-issue:
+    number: 0
+    repo_url: ''
+  title: ''
+deprecation:
+- description: ''
+  files:
+    added:
+    - ''
+    deleted:
+    - ''
+    modified:
+    - ''
+    moved:
+    - ''
+  related-issue:
+    number: 0
+    repo_url: ''
+  title: ''
+documentation:
+- description: ''
+  files:
+    added:
+    - ''
+    deleted:
+    - ''
+    modified:
+    - ''
+    moved:
+    - ''
+  related-issue:
+    number: 0
+    repo_url: ''
+  title: ''
+performance:
+- description: ''
+  files:
+    added:
+    - ''
+    deleted:
+    - ''
+    modified:
+    - ''
+    moved:
+    - ''
+  related-issue:
+    number: 0
+    repo_url: ''
+  title: ''
+removal:
+- description: ''
+  files:
+    added:
+    - ''
+    deleted:
+    - ''
+    modified:
+    - ''
+    moved:
+    - ''
+  related-issue:
+    number: 0
+    repo_url: ''
+  title: ''

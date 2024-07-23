@@ -9,10 +9,3 @@
 Release Notes
 *************
 
-Version 0.1
------------
-
-.. toctree::
-   :maxdepth: 1
-
-   v0_1_0
