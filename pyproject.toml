@@ -8,13 +8,13 @@
 [tool.poetry]
 # @ Update with your package name, ie:
 # @ name = "@package@"  # package available at the root of the project
-name = "my_package"  # package available at the root of the project
+name = "my_package" # package available at the root of the project
 version = "0.0.0"
 description = "@package@ GeoIPS Plugin Package"
 authors = []
 readme = "README.md"
 keywords = []
-license = "LICENSE"   # required
+license = "LICENSE" # required
 classifiers = [ # // list of PyPI trove classifiers to describe the project
     "Programming Language :: Python :: 3",
 ]
@@ -45,9 +45,8 @@ files = ["*/_version.py"]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
 build-backend = "poetry_dynamic_versioning.backend"                          # object used to perform the build process
 
-python = ">=3.9"       # mandatory to declare the required python version
-
-# [tool.poetry.dependencies] # Include any python dependencies here
+[tool.poetry.dependencies] # Include any python dependencies here
+python = ">=3.10.0" # mandatory to declare the required python version
 # "matplotlib" = "*"
 # "xarray" = "*"
 
