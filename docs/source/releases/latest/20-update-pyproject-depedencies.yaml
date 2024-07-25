@@ -25,5 +25,5 @@ Refactoring Updates:
         - tests/scripts/amsr2.global_clean.89-PCT-Using-Product-Defaults.sh
         - tests/scripts/amsr2.tc_clean.89-PCT-Fully-Specified.sh
         - tests/scripts/test_config.sh
-    title: 'Replaced all occurences of ``run_procflow`` in test scripts with ``geoips run``
+    title: 'Replaced all occurences of ``run_procflow`` in test scripts with ``geoips run``'
 
