@@ -1,0 +1,14 @@
+interface: products
+family: list
+name: my_abi_products
+docstring: |
+  My very own ABI imagery products
+spec:
+  products:
+    - name: TPW
+      source_names: ["abi"]
+      docstring: |
+        Total Precipitable Water for ABI
+      product_defaults: TPW-CIMSS
+      spec:
+        variables: ["TPW"]
