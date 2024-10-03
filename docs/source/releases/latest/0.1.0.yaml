@@ -80,6 +80,6 @@ Testing Updates:
       To ensure release note is updated with each release, and to track which versions
       actually resulted in updates on template_basic_plugin, always add the currently
       tagged version to this list.
-    files:
-      - 1.14.0
-      - 1.14.1
+
+      * 1.14.0
+      * 1.14.1
