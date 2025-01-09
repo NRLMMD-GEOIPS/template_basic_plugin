@@ -45,7 +45,7 @@ The @package@ plugin provides the capability for
 System Requirements
 ---------------------
 
-* geoips >= 1.10.0
+* geoips >= 1.14.2
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
 * @ Add any additional system requirements, such as gfortran, etc
 
