@@ -10,6 +10,33 @@ Instructions for setting up repository from template
 *IMPORTANT NOTE: In all commands below, replace @package@ with the name that
 you want for your plugin package.*
 
+Obtain the template repository
+==============================
+
+If you are a member of the NRLMMD-GEOIPS organization
+-----------------------------------------------------
+
+You will be able to create a new repository directly from the template_basic_plugin
+repository if you have appropriate permissions within the organization / repositories.
+
+Try this first, and if it doesn't work, follow the instructions for an external user.
+
+#. From github web interface, create a new repository
+#. Select "Repository Template" NRLMMD-GEOIPS/template_basic_plugin
+
+   * If template_basic_plugin is not an option, use external user instructions below.
+#. Do not select "Include all branches"
+#. Select an organization / repository name as desired
+#. Include informative description
+#. Select public, internal, or private as desired.
+#. Select "Create repository"
+
+If any of those steps do not work, follow the external user instructions in the next
+section.
+
+If you are an external user
+---------------------------
+
 #. Clone the template repository and push it to a repo of your own
 
    * Change to the GeoIPS packages directory (set during GeoIPS install).
@@ -23,6 +50,9 @@ you want for your plugin package.*
    * Set the repository URL to your new repository:
      ``git remote set-url origin <your repo URL>``
    * Push to your new repository: ``git push -u origin main``
+
+Update your new repository with your own package information
+============================================================
 
 #. Update package subdirectory from my_package to @package@
 
@@ -114,20 +144,40 @@ you want for your plugin package.*
    * Add one direct test call to last section, "Test @package@ installation"
    * ``git commit README.md``
 
-#. Update docs/source/releases/v0_1_0.rst with description of
+#. Update docs/source/releases/latest/initial-commit.yaml with description of
    updates / included modules.
 
-   * Edit docs/source/releases/v0_1_0.rst
-   * Edit docs/source/releases/index.rst
-   * ``git commit docs/source/releases/``
+   * Edit docs/source/releases/latest/initial-commit.yaml
+   * ``git commit docs/source/releases/latest/initial-commit.yaml``
 
 #. Make sure all new and updated files have been commited and pushed
 
    * ``git commit .``
    * ``git push``
 
+Clean up any remaining template files
+=====================================
+
+In case you missed cleaning up any template files during the initial development,
+clean them up here.
+
 #. Remove this 'template_instructions.rst' file
 
    * ``git rm docs/template_instructions.rst``
    * ``git commit docs/template_instructions.rst``
+   * ``git push``
+
+#. Now make sure all the original amsr2 template files are removed. You may have already
+   removed these, just make sure they're gone!
+
+   * ``git rm tests/scripts/amsr2.global_clean.89-PCT-Using-Product-Defaults.sh``
+   * ``git rm tests/scripts/amsr2.tc_clean.89-PCT-Fully-Specified.sh``
+   * ``git rm */plugins/modules/algorithms/pmw_89test.py``
+   * ``git rm */plugins/yaml/product_defaults/89-PCT-Test.yaml``
+   * ``git rm */plugins/yaml/products/amsr2_fully_specified.yaml``
+   * ``git rm */plugins/yaml/products/amsr2_using_product_defaults.yaml``
+
+#. Make sure all removed files have been commited and pushed
+
+   * ``git commit .``
    * ``git push``
