@@ -21,6 +21,9 @@ classifiers = [ # // list of PyPI trove classifiers to describe the project
 repository = "https://github.com/NRLMMD-GEOIPS/@package@"
 #documentation = "set the url"
 include = ["**/*.txt", "**/*.py", "**/*.yaml"]
+# @ Update with your package name, ie:
+# @ packages = [{include = "@package@"}]  # package available at the root of the project
+packages = [{include = "my_package"}]
 
 # uses current version .postN and not incrementing
 [tool.poetry-dynamic-versioning]
