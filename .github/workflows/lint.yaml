@@ -12,6 +12,7 @@ jobs:
     name: Lint
     # You do not appear to be able to use variables in the "uses" field.
     uses: NRLMMD-GEOIPS/geoips_ci/.github/workflows/reusable-lint.yaml@main
+    if: "!contains(github.event.repository.name, 'test_data_')"
     permissions:
       contents: read
     secrets:

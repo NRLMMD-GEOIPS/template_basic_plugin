@@ -6,7 +6,7 @@ Major New Functionality:
     files:
       added:
         - "README.md"
-        - "docs/source/releases/latest/0.1.0.yaml"
+        - "docs/source/releases/latest/initial-commit.yaml"
         - "pyproject.toml"
         - "tests/scripts/test_config.yaml"
       deleted:
@@ -18,27 +18,16 @@ Major New Functionality:
     related-issue:
       number: 0
       repo_url: "https://github.com/NRLMMD-GEOIPS/geoips"
-  - title: "Add @reader functionality 1@"
+  - title: "Add initial functionality"
     description: |
+      Create one or more release note sections here to enumerate initial functionality.
+
       * @functionality 1 description
-    files:
-      added:
-        - "@package@/interface_modules/readers/@my_reader@"
-      deleted:
-        - ""
-      modified:
-        - ""
-      moved:
-        - ""
-    related-issue:
-      number: 0
-      repo_url: "https://github.com/NRLMMD-GEOIPS/geoips"
-  - title: "Add @module functionality 2@"
-    description: |
       * @functionality 2 description
     files:
       added:
-        - "@package@/interface_modules/@module_type@/@my_module@"
+        - "@package@/plugins/modules/readers/@my_reader@"
+        - "@package@/plugins/modules/@module_type@/@my_module@"
       deleted:
         - ""
       modified:
@@ -75,12 +64,21 @@ Testing Updates:
     related-issue:
       number: 0
       repo_url: "https://github.com/NRLMMD-GEOIPS/geoips"
+Release Updates:
   - title: "Versions including updates to template_basic_plugin repo"
     description: |
       To ensure release note is updated with each release, and to track which versions
       actually resulted in updates on template_basic_plugin, always add the currently
       tagged version to this list.
+       
+      This "Release Updates" section can be removed for your actual release notes
+      section, this is specifically for the template_basic_plugin repo itself.
     files:
       added:
         - 1.14.0
         - 1.14.1
+        - 1.14.2
+        - 1.14.3
+        - 1.14.4
+        - 1.14.5
+        - 1.15.1
