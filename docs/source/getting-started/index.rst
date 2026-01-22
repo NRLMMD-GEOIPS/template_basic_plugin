@@ -3,9 +3,9 @@
  | # # # This source code is subject to the license referenced at
  | # # # https://github.com/NRLMMD-GEOIPS.
 
-**********
-User Guide
-**********
+***************
+Getting Started
+***************
 
 .. toctree::
    :maxdepth: 2
