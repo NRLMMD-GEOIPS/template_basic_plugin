@@ -130,13 +130,16 @@ Update your new repository with your own package information
    * Rename / delete / add test scripts appropriately.
    * ``git commit tests/scripts``
 
-#. Add all test scripts to @package@/tests/test_all.sh
+#. Add all test scripts to @package@/tests/integration_tests/test_my_package.py
 
-   * Edit tests/test_all.sh
-   * This script is called automatically during exhaustive geoips testing -
-     requires 0 return.
+   * Edit tests/integration_tests/test_my_package.py
+   * Delete or edit tests/integration_tests/test_tiny_sectors_my_package.py
+     (tiny sectors often not needed for plugin repos, but including here for
+     completeness/reference).
    * Ensure all functionality included.
-   * ``git commit tests/test_all.sh``
+   * ``git mv tests/integration_tests/test_my_package.py tests/integration_tests/test_@package@.py``
+   * ``git mv tests/integration_tests/test_tiny_sectors_my_package.py tests/integration_tests/test_tiny_sectors_@package@.py``
+   * ``git commit tests/integration_tests``
 
 #. Add one example test script to README.md, if desired
 

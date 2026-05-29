@@ -40,7 +40,7 @@ Major New Functionality:
 Testing Updates:
   - title: "Add standard test scripts"
     description: |
-      Include:
+      Include
 
       * complete test script for full package integration tests.
       * Direct single source test calls.
@@ -51,7 +51,9 @@ Testing Updates:
         * @product2 test description@
     files:
       added:
-        - "tests/test_all.sh"
+        - "tests/conftest.py"
+        - "tests/integration_tests/test_@my_package@.py"
+        - "@@tests/integration_tests/test_tiny_sectors_@my_package@.py"
         - "@tests/scripts/@mydatatype@.tc.@product@.imagery_clean.sh@"
         - "tests/scripts/test_config.sh"
         - "tests/scripts/test_config.yaml"
@@ -90,3 +92,5 @@ Release Updates:
         - 1.17.0
         - 1.17.1
         - 1.17.2
+        - 1.17.3
+        - 1.18.0
