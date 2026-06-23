@@ -31,7 +31,7 @@ available_sectors:
 
   global:
     sector_list:
-      - global
+      - global_200km_longlat
 
 outputs:
   tc_clean:

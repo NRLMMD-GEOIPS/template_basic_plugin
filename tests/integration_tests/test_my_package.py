@@ -3,7 +3,7 @@
 
 #######################################################################################
 #######################################################################################
-# Start basic pytest imports
+# Start basic pytest imports v1.1
 # These can be copied as is between repositories and provide the basic pytest-based
 # integration test functionality required by all repositories.
 #######################################################################################
@@ -28,14 +28,14 @@ from tests.integration_tests.test_integration import (
 )
 
 #######################################################################################
-# End basic pytest imports
+# End basic pytest imports v1.1
 # Copied as is between repos
 #######################################################################################
 #######################################################################################
 
 #######################################################################################
 #######################################################################################
-# Start repo specific pytest functionality
+# Start repo specific pytest functionality v1.1
 # These cannot be copied as is between repositories
 #######################################################################################
 
@@ -77,14 +77,14 @@ def setup_environment():
 
 
 #######################################################################################
-# End repo specific pytest functionality
+# End repo specific pytest functionality v1.1
 # Not copied as is between repos
 #######################################################################################
 #######################################################################################
 
 #######################################################################################
 #######################################################################################
-# Start basic pytest functions
+# Start basic pytest functions v1.1
 # These can be copied as is between repositories and provide the basic pytest-based
 # integration test functionality required by all repositories.
 #######################################################################################
@@ -183,7 +183,7 @@ def test_integ_validation_script(base_setup: None, script: str):  # noqa: F811
 
 
 #######################################################################################
-# End basic pytest functions
+# End basic pytest functions v1.1
 # Copied as is between repos
 #######################################################################################
 #######################################################################################
