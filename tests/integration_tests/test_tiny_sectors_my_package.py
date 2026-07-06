@@ -26,12 +26,22 @@ global_example_integ_test_calls = [
     # ### purposes, and identifying day/night/spatial contents of a given dataset.
     # ### More information in geoips/tests/integration_tests/test_tiny_sector_geoips.py
     ##################################################################################
+    # @@ Only include datasets here that are specific to this repository, and are not
+    # @@ included in other repositories.
     # @@ (
     # @@     "$geoips_repopath/tests/example_scripts/global_terminator_satzen.sh "
     # @@     "@@abi_netcdf@@ "
     # @@     "Test-@@ABI-B14@@ "
     # @@     "@@${GEOIPS_TESTDATA_DIR}/test_data_abi/data/goes17_20210718_0150/*@@"  # noqa: E501
     # @@ ),
+    # @@ This is also included in the main geoips repo, but included here for reference.
+    # @@ Remove this example for your own repository, add other examples as needed.
+    (
+        "$GEOIPS/tests/example_scripts/global_terminator_satzen.sh "
+        "ahi_hsd "
+        "Test-AHI-B13 "
+        "$GEOIPS_TESTDATA_DIR/test_data_ahi/data/20200405_0000/HS_H08*"  # noqa: E501
+    ),
 ]
 
 tiny_sector_overlay_integ_test_calls = [
@@ -49,6 +59,8 @@ tiny_sector_overlay_integ_test_calls = [
     # ### meteorological features within the dataset.
     ##################################################################################
     # @@ "geoips test sector --overlay @@test_goes17_eqc_10km_terminator_20210718T0150Z@@ -o $GEOIPS_OUTDIRS/example_test_imagery_outputs ",  # noqa: E501
+    # @@ Ensure you include any tiny sector that is created/defined in this repository.
+    "geoips test sector --overlay template_test_himawari8_eqc_10km_terminator_20200405T0000Z -o $GEOIPS_OUTDIRS/example_test_imagery_outputs ",  # noqa: E501
 ]
 
 
@@ -73,9 +85,18 @@ tiny_sector_integ_test_calls = [
     # @@     "@@test_goes17_eqc_10km_terminator_20210718T0150Z@@ "
     # @@     "@@abi_netcdf@@ "
     # @@     "Test-@@ABI-B14-Night@@-Only "
-    # @@     "@@my_package@@ "
+    # @@     "@@repo_name@@ "
     # @@     "@@$GEOIPS_TESTDATA_DIR/test_data_abi/data/goes17_20210718_0150/*@@"  # noqa: E501
     # @@ ),
+    # @@ Ensure you include any tiny sector that is created/defined in this repository.
+    (
+        "$geoips_repopath/tests/integration_tests/tiny_sectors/tiny_sectors_geostationary.sh "  # noqa: E501
+        "template_test_himawari8_eqc_10km_terminator_20200405T0000Z "
+        "ahi_hsd "
+        "Test-AHI-B13-Day-Only "
+        "template_basic_plugin "
+        "$GEOIPS_TESTDATA_DIR/test_data_ahi/data/20200405_0000/*"
+    ),
 ]
 
 

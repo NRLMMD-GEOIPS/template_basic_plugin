@@ -49,7 +49,7 @@ geoips run single_source \
     --output_formatter imagery_clean \
     --filename_formatter geoips_fname \
     --minimum_coverage 0 \
-    --sector_list global
+    --sector_list global_200km_longlat
 ss_retval=$?
 
 exit $((ss_retval))

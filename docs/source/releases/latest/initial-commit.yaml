@@ -1,3 +1,6 @@
+# @@ Update this release note as needed for your actual initial commit.
+# @@ Update lines marked @@ as needed and remove all lines containing @@
+# @@ when complete.
 Major New Functionality:
   - title: "Add standard top level and installation files"
     description: |
@@ -8,7 +11,6 @@ Major New Functionality:
         - "README.md"
         - "docs/source/releases/latest/initial-commit.yaml"
         - "pyproject.toml"
-        - "tests/scripts/test_config.yaml"
       deleted:
         - ""
       modified:
@@ -18,16 +20,20 @@ Major New Functionality:
     related-issue:
       number: 0
       repo_url: "https://github.com/NRLMMD-GEOIPS/geoips"
-  - title: "Add initial functionality"
+  - title: "@@Add initial functionality"
     description: |
-      Create one or more release note sections here to enumerate initial functionality.
+      # @@ Update to include your own initial functionality.
+      @@ Create one or more release note sections here to enumerate initial functionality.
 
-      * @functionality 1 description
-      * @functionality 2 description
+      * @@functionality 1 description
+      * @@functionality 2 description
     files:
       added:
-        - "@package@/plugins/modules/readers/@my_reader@"
-        - "@package@/plugins/modules/@module_type@/@my_module@"
+        # @@ Include any specific plugins added in your initial commit
+        # @@ Remove any template lines that are not applicable.
+        - "@@package@@/plugins/yaml/sectors/integration_tests/geostationary/himawari_sector/@@template_test_himawari8_eqc_10km_terminator_20200405T0000Z.yaml@@"
+        - "@@package@@/plugins/modules/readers/@@my_reader@@"
+        - "@@package@@/plugins/modules/@@module_type@@/@@my_module@@"
       deleted:
         - ""
       modified:
@@ -40,6 +46,7 @@ Major New Functionality:
 Testing Updates:
   - title: "Add standard test scripts"
     description: |
+      @@ Update to explain your actual initial functionality tests
       Include
 
       * complete test script for full package integration tests.
@@ -47,16 +54,19 @@ Testing Updates:
       * Complete functionality integration test.
       * YAML procflow config to produce all available products.
 
-        * @product1 test description@
-        * @product2 test description@
+        * @@product1 test description@@
+        * @@product2 test description@@
     files:
       added:
+        # @@ Remove any files not included - always must contain primary pytest based
+        # @@ python integration wrapper test script, conftest.py, and at least one
+        # @@ tests/scripts bash integration test script.
         - "tests/conftest.py"
-        - "tests/integration_tests/test_@my_package@.py"
-        - "@@tests/integration_tests/test_tiny_sectors_@my_package@.py"
-        - "@tests/scripts/@mydatatype@.tc.@product@.imagery_clean.sh@"
-        - "tests/scripts/test_config.sh"
-        - "tests/scripts/test_config.yaml"
+        - "tests/integration_tests/test_@@my_package@@.py"
+        - "tests/scripts/@@mydatatype@@.@@tc@@.@@product@@.@@imagery_clean@@.sh"
+        - "@@tests/integration_tests/test_tiny_sectors_@@my_package@@.py"
+        - "@@tests/scripts/test_config.sh"
+        - "@@tests/scripts/test_config.yaml"
       deleted:
         - ""
       modified:
@@ -69,12 +79,13 @@ Testing Updates:
 Release Updates:
   - title: "Versions including updates to template_basic_plugin repo"
     description: |
+      @@ This entire "Release Updates" section should be removed for your actual
+      @@ release notes section, this is specifically for the template_basic_plugin
+      @@ repo itself.
+
       To ensure release note is updated with each release, and to track which versions
       actually resulted in updates on template_basic_plugin, always add the currently
       tagged version to this list.
-       
-      This "Release Updates" section can be removed for your actual release notes
-      section, this is specifically for the template_basic_plugin repo itself.
     files:
       added:
         - 1.14.0
@@ -94,3 +105,4 @@ Release Updates:
         - 1.17.2
         - 1.17.3
         - 1.18.0
+        - 1.19.0
